@@ -14,6 +14,8 @@ import { ProjetComponent } from './components/projet/projet.component';
 import { UcaRechComponent } from './components/uca-rech/uca-rech.component';
 import { ProjetService } from './services/projet/projet.service';
 import { UcaRechService } from './services/ucaRech/uca-rech.service';
+import { ResponsableComponent } from './responsable/responsable.component';
+import { ResponsableService } from './responsable.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { UcaRechService } from './services/ucaRech/uca-rech.service';
     EtablissementComponent,
     LaboratoireComponent,
     ProjetComponent,
-    UcaRechComponent
+    UcaRechComponent,
+    ResponsableComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { UcaRechService } from './services/ucaRech/uca-rech.service';
     EtablissementService,
     LaboratoireService,
     ProjetService,
-    UcaRechService
+    UcaRechService,
+    ResponsableService
   ],
   bootstrap: [AppComponent]
 })
