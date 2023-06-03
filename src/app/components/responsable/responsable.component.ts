@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ResponsableService } from '../services/responsable/responsable.service';
-import { IResponsable } from '../models/IResponsable';
+import { ResponsableService } from '../../services/responsable/responsable.service';
+import { IResponsable } from '../../models/IResponsable';
 
 @Component({
   selector: 'app-responsable',
