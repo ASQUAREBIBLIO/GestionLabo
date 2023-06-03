@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { MembreListComponent } from './components/membre-list/membre-list.component';
 import { MembreService } from './services/membre/membre.service';
 import { HttpClientModule } from '@angular/common/http';
-import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
+import { EtablissementComponent } from './components/etablissement/etablissement.component';
 
 @NgModule({
   declarations: [
