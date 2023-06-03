@@ -8,6 +8,8 @@ import { MembreService } from './services/membre/membre.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
+import { EtablissementService } from './services/etablissement/etablissement.service';
+import { LaboratoireService } from './services/laboratoire/laboratoire.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,11 @@ import { LaboratoireComponent } from './components/laboratoire/laboratoire.compo
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [MembreService],
+  providers: [
+    MembreService,
+    EtablissementService,
+    LaboratoireService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
