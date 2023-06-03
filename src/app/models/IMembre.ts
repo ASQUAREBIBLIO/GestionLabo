@@ -12,8 +12,8 @@ export interface IMembre{
     password: string;
     isDirector: boolean;
     role: any;
-    laboratoire: ILaboratoire;
-    admin: IAdmin;
+    laboratoire?: ILaboratoire;
+    admin?: IAdmin;
     projets?: IProjet[];
     ucaRechs?: IUcaRech[];
     expressionBesoins?: IExpressionBesoin[];
