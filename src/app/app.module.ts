@@ -7,6 +7,8 @@ import { MembreListComponent } from './components/membre-list/membre-list.compon
 import { MembreService } from './services/membre/membre.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
+import { EtablissementService } from './services/etablissement/etablissement.service';
+import { LaboratoireService } from './services/laboratoire/laboratoire.service';
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { ProjetComponent } from './components/projet/projet.component';
 import { UcaRechComponent } from './components/uca-rech/uca-rech.component';
@@ -29,6 +31,8 @@ import { UcaRechService } from './services/ucaRech/uca-rech.service';
   ],
   providers: [
     MembreService,
+    EtablissementService,
+    LaboratoireService,
     ProjetService,
     UcaRechService
   ],
