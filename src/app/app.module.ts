@@ -18,6 +18,7 @@ import { ResponsableComponent } from './components/responsable/responsable.compo
 import { ExpressionBesoinsComponent } from './components/expression-besoins/expression-besoins.component';
 import { ResponsableService } from './services/responsable/responsable.service';
 import { AdminComponent } from './components/admin/admin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AdminComponent } from './components/admin/admin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     MembreService,
