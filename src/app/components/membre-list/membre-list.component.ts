@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MembreService} from '../services/membre.service';
-import { IMembre } from '../models/IMembre';
+import {MembreService} from '../../services/membre.service';
+import { IMembre } from '../../models/IMembre';
 
 @Component({
   selector: 'app-membre-list',
