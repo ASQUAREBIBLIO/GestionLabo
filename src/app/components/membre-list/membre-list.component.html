@@ -4,7 +4,8 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
+            <th scope="col">Nom</th>
+            <th>Prenom</th>
             <th scope="col">Email</th>
           </tr>
         </thead>
@@ -12,6 +13,7 @@
           <tr *ngFor="let membre of membres">
             <td>{{ membre.id }}</td>
             <td>{{ membre.nom }}</td>
+            <td>{{ membre.prenom }}</td>
             <td><a href="mailto:{{ membre.email }}">{{ membre.email }}</a></td>
           </tr>
         </tbody>

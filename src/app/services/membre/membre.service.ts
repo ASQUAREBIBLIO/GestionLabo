@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IMembre } from '../models/IMembre';
+import { IMembre } from '../../models/IMembre';
 import { Observable } from 'rxjs';
 
 @Injectable({

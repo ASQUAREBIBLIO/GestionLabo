@@ -4,15 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MembreListComponent } from './components/membre-list/membre-list.component';
-import { MembreService } from './services/membre.service';
+import { MembreService } from './services/membre/membre.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
+import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembreListComponent,
-    EtablissementComponent
+    EtablissementComponent,
+    LaboratoireComponent
   ],
   imports: [
     BrowserModule,
