@@ -17,6 +17,7 @@ import { UcaRechService } from './services/ucaRech/uca-rech.service';
 import { ResponsableComponent } from './components/responsable/responsable.component';
 import { ExpressionBesoinsComponent } from './components/expression-besoins/expression-besoins.component';
 import { ResponsableService } from './services/responsable/responsable.service';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ResponsableService } from './services/responsable/responsable.service';
     ProjetComponent,
     UcaRechComponent,
     ResponsableComponent,
-    ExpressionBesoinsComponent
+    ExpressionBesoinsComponent,
+    AdminComponent
 
   ],
   imports: [
