@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { ProjetComponent } from './components/projet/projet.component';
+import { UcaRechComponent } from './components/uca-rech/uca-rech.component';
+import { ProjetService } from './services/projet/projet.service';
+import { UcaRechService } from './services/ucaRech/uca-rech.service';
 
 @NgModule({
   declarations: [
@@ -16,14 +19,19 @@ import { ProjetComponent } from './components/projet/projet.component';
     MembreListComponent,
     EtablissementComponent,
     LaboratoireComponent,
-    ProjetComponent
+    ProjetComponent,
+    UcaRechComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [MembreService],
+  providers: [
+    MembreService,
+    ProjetService,
+    UcaRechService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,33 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IProjet } from 'src/app/models/IProjet';
+import { IProjet } from '../../models/IProjet';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjetService {
-  private membresUrl = 'http://localhost:8082/projets';
+  private projetUrl = 'http://localhost:8082/projets';
 
   constructor(private http: HttpClient) {}
 
   getAllProjets(): Observable<IProjet[]> {
-    return this.http.get<IProjet[]>(this.membresUrl);
+    return this.http.get<IProjet[]>(this.projetUrl);
   }
 
   getProjetById(id: number): Observable<IProjet> {
-    return this.http.get<IProjet>(`${this.membresUrl}/${id}`);
+    return this.http.get<IProjet>(`${this.projetUrl}/${id}`);
   }
 
-  createProjet(membre: IProjet): Observable<IProjet> {
-    return this.http.post<IProjet>(this.membresUrl, membre);
+  createProjet(projet: IProjet): Observable<IProjet> {
+    return this.http.post<IProjet>(this.projetUrl, projet);
   }
 
-  updateProjet(id: number, membre: IProjet): Observable<IProjet> {
-    return this.http.put<IProjet>(`${this.membresUrl}/${id}`, membre);
+  updateProjet(id: number, projet: IProjet): Observable<IProjet> {
+    return this.http.put<IProjet>(`${this.projetUrl}/${id}`, projet);
   }
 
   deleteProjet(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.membresUrl}/${id}`);
+    return this.http.delete<void>(`${this.projetUrl}/${id}`);
   }
 }
