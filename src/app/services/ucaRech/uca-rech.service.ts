@@ -7,7 +7,7 @@ import { IUcaRech } from '../../models/IUcaRech';
   providedIn: 'root'
 })
 export class UcaRechService {
-  private ucaRechUrl = 'http://localhost:8082/dotations/UcaRech';
+  private ucaRechUrl = 'http://localhost:8082/dotations/UcaRecherche';
 
   constructor(private http: HttpClient) {}
 
