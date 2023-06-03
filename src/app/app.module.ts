@@ -8,13 +8,15 @@ import { MembreService } from './services/membre/membre.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
+import { ProjetComponent } from './components/projet/projet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembreListComponent,
     EtablissementComponent,
-    LaboratoireComponent
+    LaboratoireComponent,
+    ProjetComponent
   ],
   imports: [
     BrowserModule,
