@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { MembreListComponent } from './components/membre-list/membre-list.component';
 import { MembreService } from './services/membre/membre.service';
 import { HttpClientModule } from '@angular/common/http';
-import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 import { EtablissementService } from './services/etablissement/etablissement.service';
 import { LaboratoireService } from './services/laboratoire/laboratoire.service';
+import { EtablissementComponent } from './components/etablissement/etablissement.component';
+import { ProjetComponent } from './components/projet/projet.component';
+import { UcaRechComponent } from './components/uca-rech/uca-rech.component';
+import { ProjetService } from './services/projet/projet.service';
+import { UcaRechService } from './services/ucaRech/uca-rech.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembreListComponent,
     EtablissementComponent,
-    LaboratoireComponent
+    LaboratoireComponent,
+    ProjetComponent,
+    UcaRechComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,9 @@ import { LaboratoireService } from './services/laboratoire/laboratoire.service';
   providers: [
     MembreService,
     EtablissementService,
-    LaboratoireService
+    LaboratoireService,
+    ProjetService,
+    UcaRechService
   ],
   bootstrap: [AppComponent]
 })
