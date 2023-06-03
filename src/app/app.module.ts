@@ -14,6 +14,7 @@ import { ProjetComponent } from './components/projet/projet.component';
 import { UcaRechComponent } from './components/uca-rech/uca-rech.component';
 import { ProjetService } from './services/projet/projet.service';
 import { UcaRechService } from './services/ucaRech/uca-rech.service';
+import { ExpressionBesoinsComponent } from './components/expression-besoins/expression-besoins.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UcaRechService } from './services/ucaRech/uca-rech.service';
     EtablissementComponent,
     LaboratoireComponent,
     ProjetComponent,
-    UcaRechComponent
+    UcaRechComponent,
+    ExpressionBesoinsComponent
   ],
   imports: [
     BrowserModule,
