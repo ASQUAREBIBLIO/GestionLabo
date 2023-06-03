@@ -1,7 +1,7 @@
 import { IMembre } from "./IMembre";
 
 export interface IProjet{
-    id: number;
+    id?: number;
     nom: string;
     dateDebut: Date;
     dateFin: Date;

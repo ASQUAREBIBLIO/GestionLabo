@@ -1,3 +1,5 @@
+import { IExpressionBesoin } from "./IExpressionBesoin";
+
 export interface IResponsable{
     id: number;
     nom: string;
@@ -5,4 +7,5 @@ export interface IResponsable{
     email: string;
     password: string;
     role: any;
+    expressionBesoins?: IExpressionBesoin[];
 }
