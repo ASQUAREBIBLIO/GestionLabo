@@ -5,7 +5,7 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['../../vendors/styles/style.css', '../../srctemplate/plugins/datatables/css/dataTables.bootstrap4.min.css','../../vendors/styles/core.css','../../vendors/styles/icon-font.min.css']
 })
 export class AdminComponent {
   admins!: IAdmin[];

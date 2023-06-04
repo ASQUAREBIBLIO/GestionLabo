@@ -11,7 +11,6 @@ const routes: Routes = [
   {path: 'etablissements', component: EtablissementComponent},
   {path: 'laboratoires', component: LaboratoireComponent},
   {path: 'responsables', component: ResponsableComponent},
-  {path: 'admin', component: AdminComponent},
 
   {path: 'admin/dashboard', component: AdminComponent}
 ];
