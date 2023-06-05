@@ -2,13 +2,24 @@ import { Component } from '@angular/core';
 import { IAdmin } from 'src/app/models/IAdmin';
 import { AdminService } from 'src/app/services/admin/admin.service';
 
+
+// Rename locally declared variable to avoid conflict
+
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['../../vendors/styles/style.css', '../../srctemplate/plugins/datatables/css/dataTables.bootstrap4.min.css','../../vendors/styles/core.css','../../vendors/styles/icon-font.min.css']
+  styleUrls: ['../../vendors/styles/style.css', '../../srctemplate/plugins/datatables/css/dataTables.bootstrap4.min.css','../../vendors/styles/core.css','../../vendors/styles/icon-font.min.css'],
+  
+
 })
 export class AdminComponent {
   admins!: IAdmin[];
+  photo1: any;
+  assets: any;
+  images: any;
+
+
 
   constructor(private adminService: AdminService) { }
 
