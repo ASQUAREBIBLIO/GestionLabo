@@ -7,5 +7,5 @@ export interface IEtablissement{
     ville: string;
     adresse: string;
     laboratoires?: ILaboratoire[];
-    admin: IAdmin;
+    admin: IAdmin | null;
 }

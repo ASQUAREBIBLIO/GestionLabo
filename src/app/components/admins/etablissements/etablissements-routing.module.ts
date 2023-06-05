@@ -17,6 +17,11 @@ const routes: Routes = [
     path: "listetablissement",
     component: ListetablissementComponent,
   },
+  {
+    path: 'etablissements/edit/:id', 
+    component: EditetablissementComponent 
+
+  },
 
 ];
 

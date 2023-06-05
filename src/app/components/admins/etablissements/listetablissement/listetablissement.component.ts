@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { IEtablissement } from 'src/app/models/IEtablissement';
 import { EtablissementService } from 'src/app/services/etablissement/etablissement.service';
 
@@ -10,8 +11,10 @@ import { EtablissementService } from 'src/app/services/etablissement/etablisseme
 export class ListetablissementComponent {
   etablissements: IEtablissement[] = [];
 
-  constructor(private etablissementService: EtablissementService) { }
-
+  constructor(
+    private router: Router,
+    private etablissementService: EtablissementService
+  ) { }
   ngOnInit() {
     this.loadEtablissements();
   }
@@ -32,6 +35,9 @@ export class ListetablissementComponent {
       },
       error => console.log(error)
     );
+  }
+  editEtablissement(etablissementId: number) {
+    this.router.navigate(['/etablissements/edit', etablissementId]);
   }
 }
 

@@ -6,95 +6,27 @@
         </div>
     
     </div>
-    <form>
+    <form #editForm="ngForm" novalidate>
         <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Text</label>
+            <label class="col-sm-12 col-md-2 col-form-label">Nom</label>
             <div class="col-sm-12 col-md-10">
-                <input class="form-control" type="text" placeholder="Johnny Brown">
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="etablissement.nom">
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Search</label>
+            <label class="col-sm-12 col-md-2 col-form-label">Ville</label>
             <div class="col-sm-12 col-md-10">
-                <input class="form-control" placeholder="Search Here" type="search">
+                <input class="form-control" placeholder="Marrakech" type="text" name="ville" id="ville" [(ngModel)]="etablissement.ville" required>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Email</label>
+            <label class="col-sm-12 col-md-2 col-form-label">Adresse</label>
             <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="bootstrap@example.com" type="email">
+                <input class="form-control" placeholder="Marrakech massira1" type="text" name="adresse" id="adresse" [(ngModel)]="etablissement.adresse" required>
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">URL</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="https://getbootstrap.com" type="url">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="1-(111)-111-1111" type="tel">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Password</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="password" type="password">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Number</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="100" type="number">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="example-datetime-local-input" class="col-sm-12 col-md-2 col-form-label">Date and time</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control datetimepicker" placeholder="Choose Date anf time" type="text">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Date</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control date-picker" placeholder="Select Date" type="text">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Month</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control month-picker" placeholder="Select Month" type="text">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Time</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control time-picker" placeholder="Select time" type="text">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Select</label>
-            <div class="col-sm-12 col-md-10">
-                <select class="custom-select col-12">
-                    <option selected="">Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Color</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="#563d7c" type="color">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Input Range</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" value="50" type="range">
-            </div>
-        </div>
+
+        <button class="btn btn-primary" (click)="updateEtablissement()">Update</button>
+
     </form>
 </div>
