@@ -38,7 +38,7 @@ export class ListexpressionComponent {
       error => console.log(error)
     );
   }
-  editEtablissement(expressionId: number) {
+  editExpressionBesoins(expressionId: number) {
     this.router.navigate(['/expressionsbesoin/edit', expressionId]);
   }
 

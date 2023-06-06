@@ -249,13 +249,13 @@
 				<ul id="accordion-menu">
 					<li ngbDropdown class="dropdown">
 						<a href="javascript:;" id="dropdownMenuButton" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Etablissement</span>
+							<span class="micon dw dw-house-1"></span><span class="mtext">Expression Besoin</span>
 						</a>
-						<!-- <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" [routerLink]="['/listexpression']" >Liste Etablissement</a></li>
-							<li><a class="dropdown-item" [routerLink]="['/addexpression']" >Add Etablissement</a></li>
-							<li><a class="dropdown-item" [routerLink]="['/editexpression']" >Edit Etablissement</a></li>
-						</ul> -->
+						<ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" [routerLink]="['/listexpression']" >Liste ExpressionBesoin</a></li>
+							<li><a class="dropdown-item" [routerLink]="['/addexpression']" >Add ExpressionBesoin</a></li>
+							<li><a class="dropdown-item" [routerLink]="['/editexpression']" >Edit ExpressionBesoin</a></li>
+						</ul>
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
@@ -444,29 +444,56 @@
                 </div>
             
             </div>
-            <!-- <form (ngSubmit)="createEtablissement()" #etablissementForm="ngForm" novalidate>
+            <form (ngSubmit)="createExpressionBesoins()" #expressionbesoinForm="ngForm" novalidate>
                 <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Nom</label>
+                    <label class="col-sm-12 col-md-2 col-form-label">montantApprox</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" class="form-control" id="nom" name="nom" placeholder="UCA" [(ngModel)]="etablissement.nom" required>
+                        <input type="number" [(ngModel)]="expressionBesoin.montantApprox" name="montantApprox" id="montantApprox" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Ville</label>
+                    <label class="col-sm-12 col-md-2 col-form-label">dateDem</label>
                     <div class="col-sm-12 col-md-10">
-                        <input class="form-control" placeholder="Marrakech" type="text" name="ville" id="ville" [(ngModel)]="etablissement.ville" required>
+                        <input type="date" [(ngModel)]="expressionBesoin.dateDem" name="dateDem" id="dateDem" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Adresse</label>
+                    <label class="col-sm-12 col-md-2 col-form-label">dateEffet</label>
                     <div class="col-sm-12 col-md-10">
-                        <input class="form-control" placeholder="Marrakech massira1" type="text" name="adresse" id="adresse" [(ngModel)]="etablissement.adresse" required>
+                        <input type="date" [(ngModel)]="expressionBesoin.dateEffet" name="dateEffet" id="dateEffet" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">montantEffet</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input type="date" [(ngModel)]="expressionBesoin.montantEffet" name="montantEffet" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">IsValid</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input type="checkbox" [(ngModel)]="expressionBesoin.isValid" name="isValid">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">#membre</label>
+                    <div class="col-sm-12 col-md-10">
+                        <span *ngIf="expressionBesoin.membre!==null; else eBlock"></span>
+                        <ng-template #eBlock><span></span></ng-template>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">#responsable</label>
+                    <div class="col-sm-12 col-md-10">
+                        <span *ngIf="expressionBesoin.responsable!==null; else eBlock"></span>
+                        <ng-template #eBlock><span></span></ng-template>
                     </div>
                 </div>
         
                 <button class="btn btn-primary" type="submit">Add</button>
         
-            </form> -->
+            
+            </form>
         </div>
 	</div>
 	<!-- js -->

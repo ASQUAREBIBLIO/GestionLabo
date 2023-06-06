@@ -19,5 +19,5 @@ export interface IExpressionBesoin{
         nom: string;
         prenom: string;
     };
-    type?: ITypeBesoin;
+    type?: ITypeBesoin | null;
 }

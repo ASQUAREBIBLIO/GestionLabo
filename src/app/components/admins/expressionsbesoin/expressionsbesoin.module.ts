@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { ExpressionsbesoinRoutingModule } from './expressionsbesoin-routing.module';
 import { AddexpressionComponent } from './addexpression/addexpression.component';
 import { EditexpressionComponent } from './editexpression/editexpression.component';
-import { DelexpressionComponent } from './delexpression/delexpression.component';
 import { ListexpressionComponent } from './listexpression/listexpression.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     AddexpressionComponent,
     EditexpressionComponent,
-    DelexpressionComponent,
     ListexpressionComponent
   ],
   imports: [
     CommonModule,
-    ExpressionsbesoinRoutingModule
+    ExpressionsbesoinRoutingModule,
+    RouterModule,
+    FormsModule
   ]
 })
 export class ExpressionsbesoinModule { }
