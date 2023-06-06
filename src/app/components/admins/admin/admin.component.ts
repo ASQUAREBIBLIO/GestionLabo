@@ -31,6 +31,13 @@ export class AdminComponent {
     adresse: ''
   }
 
+  laboratoire: ILaboratoire = {
+    nomLabo: '',
+    etablissement: {
+      id: 0,
+    }
+  }
+
 
   photo1: any;
   assets: any;
@@ -71,6 +78,17 @@ export class AdminComponent {
       error => {
         console.log('Error fetching admins:', error);
       }
+    );
+  }
+
+  createLaboratoire() {
+    this.laboratoireService.createLaboratoire(this.laboratoire).subscribe(
+      response => {
+        console.log('Etablissement created successfully.');
+        // Additional logic if needed
+        this.router.navigate(['admin/dashboard']);
+      },
+      error => console.log(error)
     );
   }
 

@@ -1,11 +1,11 @@
 import { IMembre } from "./IMembre";
 
 export interface ILaboratoire{
-    id: number;
+    id?: number;
     nomLabo: string;
     etablissement: {
         id: number;
-        nom: string;
+        nom?: string;
     }
     membres?: [
         {

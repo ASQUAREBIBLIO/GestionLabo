@@ -474,15 +474,21 @@
 									<form (ngSubmit)="createEtablissement()" #etablissementForm="ngForm" novalidate>
 										<div class="form-group">
 										  <label for="nom">Nom</label>
-										  <input type="text" class="form-control" id="nom" name="nom" [(ngModel)] ="etablissement.nom" required>
+										  <input type="text" class="form-control" id="nom" name="nom" 
+										  	[(ngModel)] ="etablissement.nom"
+											placeholder="Faculté des sciences Semlalia" required>
 										</div>
 										<div class="form-group">
 										  <label for="ville">Ville</label>
-										  <input type="text" class="form-control" id="ville" name="ville" [(ngModel)] ="etablissement.ville" required>
+										  <input type="text" class="form-control" id="ville" name="ville" 
+										  	[(ngModel)] ="etablissement.ville"
+											placeholder="Marrakech" required>
 										</div>
 										<div class="form-group">
 											<label for="adresse">Adresse</label>
-											<input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)] ="etablissement.adresse" required>
+											<input type="text" class="form-control" id="adresse" name="adresse" 
+												[(ngModel)] ="etablissement.adresse"
+												placeholder="Bv. Prince Molay Abdellah" required>
 										</div>
 										<button type="submit" class="btn btn-primary">Submit</button>
 									  </form>
@@ -548,15 +554,16 @@
 								  </button>
 								</div>
 								<div class="modal-body">
-									<form>
+									<form (ngSubmit)="createLaboratoire()" #laboratoireForm="ngForm" novalidate>
 										<div class="form-group">
-										  <label for="nom">Nom</label>
-										  <input type="text" class="form-control" id="nom">
+											<label for="nom">Nom</label>
+											<input type="text" class="form-control" id="nom" name="nomLabo"
+												[(ngModel)] ="laboratoire.nomLabo" placeholder="Nom de laboratoire">
 										</div>
 										<div class="form-group">
 											<label for="etablissement">Etablissement</label>
-											<select class="form-control" id="etablissement">
-												<option *ngFor="let etabliss of etablissements" value={{etabliss.id}}>{{etabliss.nom}}</option>
+											<select class="form-control" id="etablissement" [(ngModel)] ="laboratoire.etablissement.id">
+												<option *ngFor="let etabliss of etablissements" value="etabliss.id">{{etabliss.nom}}</option>
 											</select>
 										</div>
 										<button type="submit" class="btn btn-primary">Submit</button>
