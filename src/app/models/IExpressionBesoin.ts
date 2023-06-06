@@ -9,7 +9,15 @@ export interface IExpressionBesoin{
     dateEffet: Date;
     montantEffet: Date;
     isValid: boolean;
-    membre?: IMembre;
-    responsable?: IResponsable;
+    membre?: {
+        id: number;
+        nom: string;
+        prenom: string;
+    };
+    responsable?: {
+        id: number;
+        nom: string;
+        prenom: string;
+    };
     type?: ITypeBesoin;
 }
