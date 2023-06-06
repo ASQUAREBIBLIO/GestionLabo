@@ -27,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     ExpressionsbesoinModule,
     ProjetsModule,
     ResponsablesModule,
-    FormsModule
+    FormsModule,
+
   ]
 })
 export class AdminsModule { }
