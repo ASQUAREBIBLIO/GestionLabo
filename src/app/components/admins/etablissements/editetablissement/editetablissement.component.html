@@ -438,55 +438,40 @@
 
 	<div class="main-container">
 		<div class="pd-20 card-box mb-30">
-            <div class="clearfix">
-                <div class="pull-left">
-                    <h4 class="text-blue h4">Default Basic Forms</h4>
-                    <p class="mb-30">All bootstrap element classies</p>
-                </div>
-            
-	<div class="pd-20 card-box mb-30">
-    	<div class="clearfix">
-        	<div class="pull-left">
-            	<h4 class="text-blue h4">Default Basic Forms</h4>
-            	<p class="mb-30">All bootstrap element classies</p>
+			<div class="clearfix">
+				<div class="pull-left">
+					<h4 class="text-blue h4">Default Basic Forms</h4>
+					<p class="mb-30">All bootstrap element classies</p>
+				</div>
+			
 			</div>
-        </div>
-    
-    </div>
-    <form #editForm="ngForm" novalidate>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Nom</label>
-            <div class="col-sm-12 col-md-10">
-                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="etablissement.nom">
-            </div>
-            <form #editForm="ngForm" novalidate>
-                <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Nom</label>
-                    <div class="col-sm-12 col-md-10">
-                        <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="etablissement.nom">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Ville</label>
-                    <div class="col-sm-12 col-md-10">
-                        <input class="form-control" placeholder="Marrakech" type="text" name="ville" id="ville" [(ngModel)]="etablissement.ville" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Adresse</label>
-                    <div class="col-sm-12 col-md-10">
-                        <input class="form-control" placeholder="Marrakech massira1" type="text" name="adresse" id="adresse" [(ngModel)]="etablissement.adresse" required>
-                    </div>
-                </div>
-        
-                <button class="btn btn-primary" (click)="updateEtablissement()">Update</button>
-        
-            </form>
-        </div>
-		</form>
-</div>
-</div>
-</div>
+			<form #editForm="ngForm" novalidate>
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">Nom</label>
+					<div class="col-sm-12 col-md-10">
+						<input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="etablissement.nom">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">Ville</label>
+					<div class="col-sm-12 col-md-10">
+						<input class="form-control" placeholder="Marrakech" type="text" name="ville" id="ville" [(ngModel)]="etablissement.ville" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">Adresse</label>
+					<div class="col-sm-12 col-md-10">
+						<input class="form-control" placeholder="Marrakech massira1" type="text" name="adresse" id="adresse" [(ngModel)]="etablissement.adresse" required>
+					</div>
+				</div>
+		
+				<button class="btn btn-primary" (click)="updateEtablissement()">Update</button>
+		
+			</form>
+		</div>
+		
+		
+	</div>
 
 
 		<!-- js -->
