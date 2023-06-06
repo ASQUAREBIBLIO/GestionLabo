@@ -94,7 +94,7 @@ export class AdminComponent {
       response => {
         console.log('Etablissement created successfully.');
         // Additional logic if needed
-        this.router.navigate(['/admin/dashboard']);
+        this.router.navigate(['admin/dashboard']);
       },
       error => console.log(error)
     );
