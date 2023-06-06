@@ -20,8 +20,7 @@ import { ResponsableService } from './services/responsable/responsable.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminsModule } from './components/admins/admins.module';
 import { DashboardmembreModule } from './components/dashboardmembre/dashboardmembre.module';
-import { ListMembresComponent } from './components/admins/membres/list-membres/list-membres.component';
-import { ListLaboratoiresComponent } from './component/admins/membres/list-laboratoires/list-laboratoires.component';
+
 
 
 
@@ -35,8 +34,6 @@ import { ListLaboratoiresComponent } from './component/admins/membres/list-labor
     UcaRechComponent,
     ResponsableComponent,
     ExpressionBesoinsComponent,
-    ListMembresComponent,
-    ListLaboratoiresComponent
 
   ],
   imports: [

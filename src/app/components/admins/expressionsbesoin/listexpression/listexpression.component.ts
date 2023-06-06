@@ -7,7 +7,7 @@ import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/exp
 @Component({
   selector: 'app-listexpression',
   templateUrl: './listexpression.component.html',
-  styleUrls: ['./listexpression.component.css']
+  styleUrls: ['../../../../vendors/styles/style.css', '../../../../srctemplate/plugins/datatables/css/dataTables.bootstrap4.min.css','../../../../vendors/styles/core.css','../../../../vendors/styles/icon-font.min.css'],
 })
 export class ListexpressionComponent {
   expressionbesoins: IExpressionBesoin[] = [];

@@ -38,7 +38,7 @@ export class ExpressionBesoinsComponent {
     );
   }
 
-  updateExpressionBesoins(expressionId: number, expression: IExpressionBesoin) {
+ /* updateExpressionBesoins(expressionId: number, expression: IExpressionBesoin) {
     this.expressionBesoinsService.updateExpressionBesoins(expressionId, expression).subscribe(
       response => {
         console.log('Needs expression updated successfully.');
@@ -47,7 +47,7 @@ export class ExpressionBesoinsComponent {
       },
       error => console.log(error)
     );
-  }
+  }*/
 
   deleteExpressionBesoins(id: number) {
     if (confirm('Are you sure you want to delete this expression?')) {
