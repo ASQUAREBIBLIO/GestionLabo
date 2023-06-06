@@ -23,8 +23,13 @@ export class ExpressionBesoinsService {
     return this.http.post<IExpressionBesoin>(this.expressionUrl, expression);
   }
 
-  updateExpressionBesoins(id: number, expression: IExpressionBesoin): Observable<IExpressionBesoin> {
+  /*updateExpressionBesoins(id: number, expression: IExpressionBesoin): Observable<IExpressionBesoin> {
     return this.http.put<IExpressionBesoin>(`${this.expressionUrl}/${id}`, expression);
+  }*/
+
+  updateExpressionBesoins(expression: IExpressionBesoin): Observable<any> {
+    const url = `${this.expressionUrl}/${expression.id}`;
+    return this.http.put(url, expression);
   }
 
   deleteExpressionBesoins(id: number): Observable<void> {
