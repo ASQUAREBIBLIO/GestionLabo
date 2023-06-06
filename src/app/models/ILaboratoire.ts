@@ -4,7 +4,7 @@ export interface ILaboratoire{
     id?: number;
     nomLabo: string;
     etablissement: {
-        id: number;
+        id?: number;
         nom?: string;
     }
     membres?: [
