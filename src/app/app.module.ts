@@ -19,6 +19,7 @@ import { ExpressionBesoinsComponent } from './components/expression-besoins/expr
 import { ResponsableService } from './services/responsable/responsable.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminsModule } from './components/admins/admins.module';
+import { DashboardmembreModule } from './components/dashboardmembre/dashboardmembre.module';
 
 
 
@@ -40,7 +41,8 @@ import { AdminsModule } from './components/admins/admins.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AdminsModule
+    AdminsModule,
+    DashboardmembreModule
   ],
   providers: [
     MembreService,
