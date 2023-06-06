@@ -23,7 +23,6 @@ export class AdminComponent {
   etablissements!: IEtablissement[];
   membres!: IMembre[];
   laboratoires!: ILaboratoire[];
-  SelectedEtabId!: number;
 
   //Post
   etablissement: IEtablissement = {
@@ -35,7 +34,7 @@ export class AdminComponent {
   laboratoire: ILaboratoire = {
     nomLabo: '',
     etablissement: {
-     
+     id: undefined
     }
   }
 
@@ -83,7 +82,6 @@ export class AdminComponent {
   }
 
   createLaboratoire() {
-    this.laboratoire.etablissement.id = this.SelectedEtabId;
     this.laboratoireService.createLaboratoire(this.laboratoire).subscribe(
       response => {
         console.log('Etablissement created successfully.');
