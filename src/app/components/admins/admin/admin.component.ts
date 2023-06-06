@@ -30,13 +30,17 @@ export class AdminComponent {
     ville: '',
     adresse: ''
   }
-
   laboratoire: ILaboratoire = {
     nomLabo: '',
     etablissement: {
      id: undefined
     }
   }
+
+  //By id
+  SelectedLaboratoire!: ILaboratoire;
+  SelectedEtablissement!: IEtablissement;
+  SelectedMembre!: IMembre;
 
 
   photo1: any;
@@ -89,6 +93,28 @@ export class AdminComponent {
       },
       error => console.log(error)
     );
+  }
+
+  getLaboratoireById(laboratoireId: number){
+    this.laboratoireService.getLaboratoireById(laboratoireId).subscribe(
+      response => {
+        this.laboratoire = response;
+      },
+      error => {
+        console.log('Error fetching laboratory:', error);
+      }
+    )
+  }
+
+  OpenEtablissementDetailsModal(etablissement: IEtablissement){
+    this.SelectedEtablissement = etablissement;
+  }
+
+  OpenLaboratoireDetailsModal(laboratoire: ILaboratoire){
+    this.SelectedLaboratoire = laboratoire;
+  }
+  OpenMembreDetailsModal(membre: IMembre){
+    this.SelectedMembre = membre;
   }
 
   getNbreOfMembers(laboratoire: ILaboratoire): number | undefined{
