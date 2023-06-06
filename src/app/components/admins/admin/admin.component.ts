@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { IAdmin } from 'src/app/models/IAdmin';
+import {IEtablissement} from 'src/app/models/IEtablissement'
+import { ILaboratoire } from 'src/app/models/ILaboratoire';
+import { IMembre } from 'src/app/models/IMembre';
 import { AdminService } from 'src/app/services/admin/admin.service';
-
-
-// Rename locally declared variable to avoid conflict
+import { EtablissementService } from 'src/app/services/etablissement/etablissement.service';
+import { LaboratoireService } from 'src/app/services/laboratoire/laboratoire.service';
+import { MembreService } from 'src/app/services/membre/membre.service';
 
 
 @Component({
@@ -15,16 +20,84 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 })
 export class AdminComponent {
   admins!: IAdmin[];
+  etablissements!: IEtablissement[];
+  membres!: IMembre[];
+  laboratoires!: ILaboratoire[];
+
+  //Post
+  etablissement: IEtablissement = {
+    nom: '',
+    ville: '',
+    adresse: ''
+  }
+
+
   photo1: any;
   assets: any;
   images: any;
 
 
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, 
+    private etablissementService: EtablissementService,
+    private membreService: MembreService,
+    private laboratoireService: LaboratoireService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getAdmins();
+    this.getEtablissements();
+    this.getMembres();
+    this.getLaboratoires();
+  }
+
+  getMembres() {
+    this.membreService.getAllMembres().subscribe(
+      response => {
+        this.membres = response;
+      },
+      error => {
+        console.log('Error fetching admins:', error);
+      }
+    );
+  }
+
+  getLaboratoires() {
+    this.laboratoireService.getLaboratoires().subscribe(
+      response => {
+        this.laboratoires = response;
+      },
+      error => {
+        console.log('Error fetching admins:', error);
+      }
+    );
+  }
+
+  getNbreOfMembers(laboratoire: ILaboratoire): number | undefined{
+    return laboratoire.membres?.length;
+  }
+
+  getEtablissements() {
+    this.etablissementService.getEtablissements().subscribe(
+      response => {
+        this.etablissements = response;
+      },
+      error => {
+        console.log('Error fetching admins:', error);
+      }
+    );
+  }
+
+  createEtablissement() {
+    this.etablissementService.createEtablissement(this.etablissement).subscribe(
+      response => {
+        console.log('Etablissement created successfully.');
+        // Additional logic if needed
+        this.router.navigate(['/admin/dashboard']);
+      },
+      error => console.log(error)
+    );
   }
 
   getAdmins() {

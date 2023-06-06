@@ -9,6 +9,8 @@ import { MembresModule } from './membres/membres.module';
 import { ExpressionsbesoinModule } from './expressionsbesoin/expressionsbesoin.module';
 import { ProjetsModule } from './projets/projets.module';
 import { ResponsablesModule } from './responsables/responsables.module';
+import { AddetablissementComponent } from './etablissements/addetablissement/addetablissement.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { ResponsablesModule } from './responsables/responsables.module';
     MembresModule,
     ExpressionsbesoinModule,
     ProjetsModule,
-    ResponsablesModule
+    ResponsablesModule,
+    FormsModule
   ]
 })
 export class AdminsModule { }

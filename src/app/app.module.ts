@@ -17,8 +17,8 @@ import { UcaRechService } from './services/ucaRech/uca-rech.service';
 import { ResponsableComponent } from './components/responsable/responsable.component';
 import { ExpressionBesoinsComponent } from './components/expression-besoins/expression-besoins.component';
 import { ResponsableService } from './services/responsable/responsable.service';
-import { AdminComponent } from './components/admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminsModule } from './components/admins/admins.module';
 
 
 
@@ -32,15 +32,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProjetComponent,
     UcaRechComponent,
     ResponsableComponent,
-    ExpressionBesoinsComponent,
-    AdminComponent
+    ExpressionBesoinsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AdminsModule
   ],
   providers: [
     MembreService,

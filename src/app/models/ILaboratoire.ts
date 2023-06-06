@@ -3,5 +3,13 @@ import { IMembre } from "./IMembre";
 export interface ILaboratoire{
     id: number;
     nomLabo: string;
-    membres?: IMembre[];
+    etablissement: {
+        id: number;
+        nom: string;
+    }
+    membres?: [
+        {
+            id: number;
+        }
+    ]
 }

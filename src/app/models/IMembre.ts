@@ -5,14 +5,20 @@ import { IProjet } from "./IProjet";
 import { IUcaRech } from "./IUcaRech";
 
 export interface IMembre{
-    id?: number;
+    id: number;
     nom: string;
     prenom: string;
     email: string;
     password: string;
-    isDirector: boolean;
+    director: boolean;
     role: any;
-    laboratoire?: ILaboratoire;
+    laboratoire?: {
+        id: number;
+        nomLabo: string;
+        etablissement:{
+            id: number; 
+        }
+    };
     admin?: IAdmin;
     projets?: IProjet[];
     ucaRechs?: IUcaRech[];

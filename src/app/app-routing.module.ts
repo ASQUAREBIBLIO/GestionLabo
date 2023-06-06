@@ -4,7 +4,7 @@ import { MembreListComponent } from './components/membre-list/membre-list.compon
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 import { ResponsableComponent } from './components/responsable/responsable.component';
-import { AdminComponent } from './components/admin/admin.component';
+//import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path: 'membres', component: MembreListComponent},
@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'laboratoires', component: LaboratoireComponent},
   {path: 'responsables', component: ResponsableComponent},
 
-  {path: 'admin/dashboard', component: AdminComponent}
+  //{path: 'admin/dashboard', component: AdminComponent}
 ];
 
 @NgModule({

@@ -1,1 +1,7 @@
 node_modules
+*.pack
+*.old
+*.pack
+.angular/cache/16.0.2/angular-webpack/f1f500409a52c37417af125d443a0ddf494638c1/0.pack
+*.pack
+*.pack
