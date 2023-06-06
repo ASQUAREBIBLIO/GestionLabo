@@ -491,7 +491,7 @@
 												placeholder="Bv. Prince Molay Abdellah" required>
 										</div>
 										<button type="submit" class="btn btn-primary">Submit</button>
-									  </form>
+									</form>
 								</div>
 							  </div>
 							</div>
@@ -523,7 +523,12 @@
 												<i class="dw dw-more"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+												<a role="button" class="dropdown-item" href="#"
+													(click)="OpenEtablissementDetailsModal(etab)"
+													data-toggle="modal" 
+													data-target="#eDetailsModal">
+													<i class="dw dw-eye"></i>View
+												</a>
 												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
 												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
 											</div>
@@ -534,6 +539,7 @@
 						</table>
 					</div>
 				</div>
+
 				<div class="col-xl-6 mb-30">
 					<div class="card-box height-100-p pd-20 position-relative">
 						<h2 class="h4 mb-20">Laboratoires</h2>
@@ -603,7 +609,12 @@
 												<i class="dw dw-more"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+												<a role="button" class="dropdown-item" href="#"
+													(click)="OpenLaboratoireDetailsModal(labo)"
+													data-toggle="modal" 
+													data-target="#labDetailsModal">
+													<i class="dw dw-eye"></i>View
+												</a>
 												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
 												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
 											</div>
@@ -699,7 +710,12 @@
 										<i class="dw dw-more"></i>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+										<a role="button" class="dropdown-item" href="#"
+											(click)="OpenMembreDetailsModal(membre)"
+											data-toggle="modal" 
+											data-target="#membreDetailsModal">
+											<i class="dw dw-eye"></i>View
+										</a>
 										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
 										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
 									</div>
@@ -726,3 +742,60 @@
 	<script src="../../../srctemplate/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 	<script src="../../../vendors/scripts/dashboard.js"></script>
 
+
+	<!-- Modal Etablissement Details-->
+	<div *ngIf="SelectedEtablissement!==null" class="modal fade" id="eDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eModalLabel" aria-hidden="true">
+		<div class="modal-dialog col-sm-12" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="eModalLabel">Details d'établissement</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+				<h5>{{SelectedEtablissement.nom}}</h5>
+				<strong>{{SelectedEtablissement.adresse}}</strong>
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<!-- Modal Laboratoire Details-->
+	<div *ngIf="SelectedLaboratoire!==null" class="modal fade" id="labDetailsModal" tabindex="-1" role="dialog" aria-labelledby="labModalLabel" aria-hidden="true">
+		<div class="modal-dialog col-sm-12" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="labModalLabel">Details de laboratoire</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+				<h5>{{SelectedLaboratoire.nomLabo}}</h5>
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<!-- Modal Membre Details-->
+	<div *ngIf="SelectedMembre!==null" class="modal fade" id="membreDetailsModal" tabindex="-1" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
+		<div class="modal-dialog col-sm-12" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="membreModalLabel">Details de Membre</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+				<h5>{{SelectedMembre.nom}} {{SelectedMembre.prenom}}</h5>
+				<a href="mailto:{{SelectedMembre.email}}">{{SelectedMembre.email}}</a><br>
+				<span *ngIf="!SelectedMembre.director else dirBlock" style="background-color: rgba(73, 106, 225, 0.53);color: #fff;padding: 5px; ">Membre</span>
+				<ng-template #dirBlock>
+					<span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
+				</ng-template>
+			</div>
+		</div>
+		</div>
+	</div>
