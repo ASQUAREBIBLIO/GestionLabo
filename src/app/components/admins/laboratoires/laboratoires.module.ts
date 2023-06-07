@@ -5,6 +5,7 @@ import { LaboratoiresRoutingModule } from './laboratoires-routing.module';
 import { AddlaboComponent } from './addlabo/addlabo.component';
 import { EditlaboComponent } from './editlabo/editlabo.component';
 import { ListlaboComponent } from './listlabo/listlabo.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ListlaboComponent } from './listlabo/listlabo.component';
   ],
   imports: [
     CommonModule,
-    LaboratoiresRoutingModule
+    LaboratoiresRoutingModule,
+    FormsModule,
   ]
 })
 export class LaboratoiresModule { }

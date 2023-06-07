@@ -316,17 +316,17 @@
 							style="right: 20px;top: 10px;background: linear-gradient(30deg, rgb(93, 93, 164), rgb(42, 29, 68));">+</button>
 						  
 						  <!-- Modal -->
-						  <div class="modal fade" id="etablissementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal fade" id="etablissementModal" tabindex="-1" role="dialog" aria-labelledby="eFormModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 							  <div class="modal-content">
 								<div class="modal-header">
-								  <h5 class="modal-title" id="exampleModalLabel">Ajouter une établissement</h5>
+								  <h5 class="modal-title" id="eFormModalLabel">Ajouter une établissement</h5>
 								  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								  </button>
 								</div>
 								<div class="modal-body">
-									<form (ngSubmit)="createEtablissement()" #etablissementForm="ngForm" novalidate action="admin/dashboard">
+									<form (ngSubmit)="createEtablissement(etablissementForm)" #etablissementForm="ngForm" novalidate>
 										<div class="form-group">
 										  <label for="nom">Nom</label>
 										  <input type="text" class="form-control" id="nom" name="nom" 
@@ -378,8 +378,8 @@
 													data-target="#eDetailsModal">
 													<i class="dw dw-eye"></i>View
 												</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+												<a class="dropdown-item" (click)="editEtab(etab.id!)"><i class="dw dw-edit2"></i> Edit</a>
+												<a class="dropdown-item" (click)="deleteEtablissement(etab.id!)"><i class="dw dw-delete-3"></i> Delete</a>
 											</div>
 										</div>
 									</td>
@@ -395,21 +395,21 @@
 						<button type="button" 
 							class="btn btn-primary position-absolute" 
 							data-toggle="modal" 
-							data-target="#laboModal" 
+							data-target="#laboratoireModal" 
 							style="right: 20px;top: 10px;background: linear-gradient(30deg, rgb(93, 93, 164), rgb(42, 29, 68));">+</button>
 						  
 						  <!-- Modal -->
-						  <div class="modal fade" id="laboModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal fade" id="laboratoireModal" tabindex="-1" role="dialog" aria-labelledby="lFormModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 							  <div class="modal-content">
 								<div class="modal-header">
-								  <h5 class="modal-title" id="exampleModalLabel">Ajouter un laboratoire</h5>
+								  <h5 class="modal-title" id="lFormModalLabel">Ajouter un laboratoire</h5>
 								  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								  </button>
 								</div>
 								<div class="modal-body">
-									<form (ngSubmit)="createLaboratoire()" #laboratoireForm="ngForm" novalidate action="admin/dashboard">
+									<form (ngSubmit)="createLaboratoire(laboratoireForm)" #laboratoireForm="ngForm" novalidate>
 										<div class="form-group">
 											<label for="nom">Nom</label>
 											<input type="text" class="form-control" id="nom" name="nomLabo"
@@ -475,37 +475,45 @@
 				<button type="button" 
 							class="btn btn-primary position-absolute" 
 							data-toggle="modal" 
-							data-target="#membreModal" 
+							data-target="#membreFormModal" 
 							style="right: 20px;top: 10px;background: linear-gradient(30deg, rgb(93, 93, 164), rgb(42, 29, 68));">Ajouter +</button>
 						  
 						  <!-- Modal -->
-						  <div class="modal fade" id="membreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal fade" id="membreFormModal" tabindex="-1" role="dialog" aria-labelledby="membreFormModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 							  <div class="modal-content">
 								<div class="modal-header">
-								  <h5 class="modal-title" id="exampleModalLabel">Ajouter un membre</h5>
+								  <h5 class="modal-title" id="membreFormModalLabel">Ajouter un membre</h5>
 								  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								  </button>
 								</div>
 								<div class="modal-body col-sm-12">
-									<form>
+									<form (ngSubmit)="createMembre(membreForm)" #membreForm="ngForm" novalidate>
 										<div class="form-group">
 										  <label for="nom">Nom</label>
-										  <input type="text" class="form-control" id="nom" placeholder="Nom de membre">
+										  <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de membre"
+										  	[(ngModel)] ="membre.nom">
 										</div>
 										<div class="form-group">
 											<label for="prenom">Prénom</label>
-											<input type="text" class="form-control" id="prenom" placeholder="Prénom de membre">
+											<input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom de membre"
+												[(ngModel)] ="membre.prenom">
 										</div>
 										<div class="form-group">
 											<label for="email">Email</label>
-											<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Adresse email">
-										  </div>
+											<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Adresse email"
+											[(ngModel)] ="membre.email">
+										</div>
+										<div class="form-group">
+											<label for="password">Mot de passe</label>
+											<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"
+												[(ngModel)] ="membre.password">
+										</div>
 										<div class="form-group">
 											<label for="labo">Laboratoire</label>
-											<select class="form-control" id="labo">
-												<option *ngFor="let lab of laboratoires" value={{lab.id}}>{{lab.nomLabo}}</option>
+											<select class="form-control" id="labo" name="laboratoire" [(ngModel)] ="membre.laboratoire.id">
+												<option *ngFor="let lab of laboratoires" [value]="lab.id">{{lab.nomLabo}}</option>
 											</select>
 										</div>
 										<button type="submit" class="btn btn-primary">Ajouter</button>

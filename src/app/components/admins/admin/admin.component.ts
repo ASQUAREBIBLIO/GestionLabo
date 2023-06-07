@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAdmin } from 'src/app/models/IAdmin';
 import {IEtablissement} from 'src/app/models/IEtablissement'
@@ -33,6 +34,17 @@ export class AdminComponent {
     nomLabo: '',
     etablissement: {
      id: undefined
+    }
+  }
+  membre: IMembre = {
+    nom: '',
+    prenom: '',
+    email: '',
+    password: '',
+    role: '',
+    director: false,
+    laboratoire:{
+      id: undefined
     }
   }
 
@@ -73,6 +85,18 @@ export class AdminComponent {
     );
   }
 
+  createMembre(membreForm: NgForm) {
+    this.membreService.createMembre(this.membre).subscribe(
+      response => {
+        console.log('Etablissement created successfully.');
+        membreForm.reset();
+        // Reload the page
+        window.location.reload();
+      },
+      error => console.log(error)
+    );
+  }
+
   getLaboratoires() {
     this.laboratoireService.getLaboratoires().subscribe(
       response => {
@@ -84,11 +108,13 @@ export class AdminComponent {
     );
   }
 
-  createLaboratoire() {
+  createLaboratoire(laboratoireForm: NgForm) {
     this.laboratoireService.createLaboratoire(this.laboratoire).subscribe(
       response => {
         console.log('Etablissement created successfully.');
-        
+        laboratoireForm.reset();
+        // Reload the page
+        window.location.reload();
       },
       error => console.log(error)
     );
@@ -131,12 +157,39 @@ export class AdminComponent {
     );
   }
 
-  createEtablissement() {
+  createEtablissement(etabForm: NgForm) {
     this.etablissementService.createEtablissement(this.etablissement).subscribe(
       response => {
         console.log('Etablissement created successfully.');
+        etabForm.reset();
+        // Reload the page
+        window.location.reload();
+      },
+      error => console.log(error)
+    );
+  }
+
+  updateEtablissement() {
+    this.etablissementService.updateEtablissement(this.etablissement).subscribe(
+      response => {
+        console.log('Etablissement updated successfully.');
+        this.router.navigate(['/admin/dashboard']);
         // Additional logic if needed
-        this.router.navigate(['admin/dashboard']);
+      },
+      error => console.log(error)
+    );
+  }
+
+  editEtab(etablissementId: number) {
+    this.router.navigate(['/admin/dashboard/e/edit', etablissementId]);
+  }
+
+  deleteEtablissement(etablissementId: number) {
+    this.etablissementService.deleteEtablissement(etablissementId).subscribe(
+      response => {
+        console.log('Etablissement deleted successfully.');
+        // Additional logic if needed
+        this.getEtablissements();
       },
       error => console.log(error)
     );

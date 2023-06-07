@@ -5,17 +5,17 @@ import { IProjet } from "./IProjet";
 import { IUcaRech } from "./IUcaRech";
 
 export interface IMembre{
-    id: number;
+    id?: number;
     nom: string;
     prenom: string;
     email: string;
     password: string;
     director: boolean;
     role: any;
-    laboratoire?: {
-        id: number;
-        nomLabo: string;
-        etablissement:{
+    laboratoire: {
+        id?: number;
+        nomLabo?: string;
+        etablissement?:{
             id: number; 
         }
     };
