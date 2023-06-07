@@ -73,6 +73,10 @@ export class ListlaboComponent {
     );
   }
 
+  editLaboratoire(laboId: number) {
+    this.router.navigate(['/admin/dashboard/laboratoires/edit', laboId]);
+  }
+
   deleteLaboratoire(laboratoireId: number) {
     this.laboratoireService.deleteLaboratoire(laboratoireId).subscribe(
       response => {

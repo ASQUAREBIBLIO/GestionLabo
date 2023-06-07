@@ -117,6 +117,20 @@ export class AdminComponent {
     );
   }
 
+  deleteMembre(id: number) {
+    if (confirm('Are you sure you want to delete this membre?')) {
+      this.membreService.deleteMembre(id).subscribe(
+        () => {
+          window.location.reload();
+          this.getMembres();
+        },
+        error => {
+          console.log('Error deleting membre:', error);
+        }
+      );
+    }
+  }
+
   createLaboratoire(laboratoireForm: NgForm) {
     this.laboratoireService.createLaboratoire(this.laboratoire).subscribe(
       response => {
@@ -129,6 +143,21 @@ export class AdminComponent {
     );
   }
 
+  updateLaboratoire() {
+    this.laboratoireService.updateLaboratoire(this.laboratoire).subscribe(
+      response => {
+        console.log('Laboratoire updated successfully.');
+        this.router.navigate(['/admin/dashboard']);
+        // Additional logic if needed
+      },
+      error => console.log(error)
+    );
+  }
+
+  editLabo(laboratoireId: number) {
+    this.router.navigate(['/admin/dashboard/lab/edit', laboratoireId]);
+  }
+
   getLaboratoireById(laboratoireId: number){
     this.laboratoireService.getLaboratoireById(laboratoireId).subscribe(
       response => {
@@ -138,6 +167,20 @@ export class AdminComponent {
         console.log('Error fetching laboratory:', error);
       }
     )
+  }
+
+  deleteLaboratoire(id: number) {
+    if (confirm('Are you sure you want to delete this laboratory?')) {
+      this.laboratoireService.deleteLaboratoire(id).subscribe(
+        () => {
+          window.location.reload();
+          this.getLaboratoires();
+        },
+        error => {
+          console.log('Error deleting laboratory:', error);
+        }
+      );
+    }
   }
 
   OpenEtablissementDetailsModal(etablissement: IEtablissement){
@@ -196,14 +239,17 @@ export class AdminComponent {
   }
 
   deleteEtablissement(etablissementId: number) {
-    this.etablissementService.deleteEtablissement(etablissementId).subscribe(
-      response => {
-        console.log('Etablissement deleted successfully.');
-        // Additional logic if needed
-        this.getEtablissements();
-      },
-      error => console.log(error)
-    );
+    if (confirm('Are you sure you want to delete this Etablissement?')) {
+      this.etablissementService.deleteEtablissement(etablissementId).subscribe(
+        response => {
+          console.log('Etablissement deleted successfully.');
+          // Additional logic if needed
+          window.location.reload();
+          this.getEtablissements();
+        },
+        error => console.log(error)
+      );
+    }
   }
 
   getAdmins() {
