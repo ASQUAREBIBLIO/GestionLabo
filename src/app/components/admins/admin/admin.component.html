@@ -493,26 +493,30 @@
 										<div class="form-group">
 										  <label for="nom">Nom</label>
 										  <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de membre"
-										  	[(ngModel)] ="membre.nom">
+										  	[(ngModel)] ="membre.nom" required>
 										</div>
 										<div class="form-group">
 											<label for="prenom">Prénom</label>
 											<input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom de membre"
-												[(ngModel)] ="membre.prenom">
+												[(ngModel)] ="membre.prenom" required>
 										</div>
 										<div class="form-group">
 											<label for="email">Email</label>
 											<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Adresse email"
-											[(ngModel)] ="membre.email">
+											[(ngModel)] ="membre.email" required="">
 										</div>
 										<div class="form-group">
 											<label for="password">Mot de passe</label>
 											<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"
-												[(ngModel)] ="membre.password">
+												[(ngModel)] ="membre.password" required="">
+										</div>
+										<div class="form-group">
+											<input type="hidden" class="form-control" id="role" name="role"
+												[(ngModel)] ="membre.role" [value]="null">
 										</div>
 										<div class="form-group">
 											<label for="labo">Laboratoire</label>
-											<select class="form-control" id="labo" name="laboratoire" [(ngModel)] ="membre.laboratoire.id">
+											<select class="form-control" id="labo" name="laboratoire" [(ngModel)] ="membre.laboratoire.id" required>
 												<option *ngFor="let lab of laboratoires" [value]="lab.id">{{lab.nomLabo}}</option>
 											</select>
 										</div>
@@ -591,7 +595,7 @@
 
 
 	<!-- Modal Etablissement Details-->
-	<div *ngIf="SelectedEtablissement!==null;" class="modal fade" id="eDetailsModal" tabindex="0" role="dialog" aria-labelledby="eModalLabel" aria-hidden="true">
+	<div *ngIf="SelectedEtablissement && SelectedEtablissement.nom" class="modal fade" id="eDetailsModal" tabindex="0" role="dialog" aria-labelledby="eModalLabel" aria-hidden="true">
 		<div class="modal-dialog col-sm-12" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -609,7 +613,7 @@
 	</div>
 
 	<!-- Modal Laboratoire Details-->
-	<div *ngIf="SelectedLaboratoire!==null" class="modal fade" id="labDetailsModal" tabindex="0" role="dialog" aria-labelledby="labModalLabel" aria-hidden="true">
+	<div *ngIf="SelectedLaboratoire && SelectedLaboratoire.nomLabo" class="modal fade" id="labDetailsModal" tabindex="0" role="dialog" aria-labelledby="labModalLabel" aria-hidden="true">
 		<div class="modal-dialog col-sm-12" >
 		<div class="modal-content">
 			<div class="modal-header">
@@ -626,7 +630,7 @@
 	</div>
 
 	<!-- Modal Membre Details-->
-	<div *ngIf="SelectedMembre!==null" class="modal fade" id="membreDetailsModal" tabindex="-1" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
+	<div *ngIf="SelectedMembre && SelectedMembre.nom" class="modal fade" id="membreDetailsModal" tabindex="-1" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
 		<div class="modal-dialog col-sm-12" role="document">
 		<div class="modal-content">
 			<div class="modal-header">

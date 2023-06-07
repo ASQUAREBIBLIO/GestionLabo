@@ -3,6 +3,7 @@ import { IExpressionBesoin } from "./IExpressionBesoin";
 import { ILaboratoire } from "./ILaboratoire";
 import { IProjet } from "./IProjet";
 import { IUcaRech } from "./IUcaRech";
+import { Role } from "./Role";
 
 export interface IMembre{
     id?: number;
@@ -11,7 +12,7 @@ export interface IMembre{
     email: string;
     password: string;
     director: boolean;
-    role: any;
+    role: Role | null;
     laboratoire: {
         id?: number;
         nomLabo?: string;

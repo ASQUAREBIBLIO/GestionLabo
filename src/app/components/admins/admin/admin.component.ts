@@ -19,10 +19,12 @@ import { MembreService } from 'src/app/services/membre/membre.service';
 
 })
 export class AdminComponent {
-  admins!: IAdmin[];
-  etablissements!: IEtablissement[];
-  membres!: IMembre[];
-  laboratoires!: ILaboratoire[];
+  admins: IAdmin[] = [];
+  etablissements: IEtablissement[] = [];
+  membres: IMembre[] = [];
+  laboratoires: ILaboratoire[] = [];
+
+  slicedResults: any[] = [];
 
   //Post
   etablissement: IEtablissement = {
@@ -41,7 +43,7 @@ export class AdminComponent {
     prenom: '',
     email: '',
     password: '',
-    role: '',
+    role: null,
     director: false,
     laboratoire:{
       id: undefined
@@ -77,7 +79,8 @@ export class AdminComponent {
   getMembres() {
     this.membreService.getAllMembres().subscribe(
       response => {
-        this.membres = response;
+        this.slicedResults = response.slice(0, 15);
+        this.membres = this.slicedResults;
       },
       error => {
         console.log('Error fetching admins:', error);
@@ -100,7 +103,8 @@ export class AdminComponent {
   getLaboratoires() {
     this.laboratoireService.getLaboratoires().subscribe(
       response => {
-        this.laboratoires = response;
+        this.slicedResults = response.slice(0, 5);
+        this.laboratoires = this.slicedResults;
       },
       error => {
         console.log('Error fetching admins:', error);
@@ -149,7 +153,8 @@ export class AdminComponent {
   getEtablissements() {
     this.etablissementService.getEtablissements().subscribe(
       response => {
-        this.etablissements = response;
+        this.slicedResults = response.slice(0, 5);
+        this.etablissements = this.slicedResults;
       },
       error => {
         console.log('Error fetching admins:', error);
