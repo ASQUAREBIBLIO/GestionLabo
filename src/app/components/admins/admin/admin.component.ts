@@ -25,6 +25,9 @@ export class AdminComponent {
   laboratoires: ILaboratoire[] = [];
 
   slicedResults: any[] = [];
+  membresLength: number = 0;
+  laboLength: number = 0;
+  eLength: number = 0;
 
   //Post
   etablissement: IEtablissement = {
@@ -79,7 +82,8 @@ export class AdminComponent {
   getMembres() {
     this.membreService.getAllMembres().subscribe(
       response => {
-        this.slicedResults = response.slice(0, 15);
+        this.membresLength = response.length;
+        this.slicedResults = response.slice(0, 15).sort((a, b) => { return b.id! - a.id!});
         this.membres = this.slicedResults;
       },
       error => {
@@ -103,7 +107,8 @@ export class AdminComponent {
   getLaboratoires() {
     this.laboratoireService.getLaboratoires().subscribe(
       response => {
-        this.slicedResults = response.slice(0, 5);
+        this.laboLength = response.length;
+        this.slicedResults = response.slice(0, 5).sort((a, b) => { return b.id! - a.id!});;
         this.laboratoires = this.slicedResults;
       },
       error => {
@@ -153,7 +158,8 @@ export class AdminComponent {
   getEtablissements() {
     this.etablissementService.getEtablissements().subscribe(
       response => {
-        this.slicedResults = response.slice(0, 5);
+        this.eLength = response.length;
+        this.slicedResults = response.slice(0, 5).sort((a, b) => { return b.id! - a.id!});;
         this.etablissements = this.slicedResults;
       },
       error => {
