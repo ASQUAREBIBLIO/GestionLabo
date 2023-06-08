@@ -20,6 +20,7 @@ import { ResponsableService } from './services/responsable/responsable.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminsModule } from './components/admins/admins.module';
 import { DashboardmembreModule } from './components/dashboardmembre/dashboardmembre.module';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 
@@ -34,6 +35,7 @@ import { DashboardmembreModule } from './components/dashboardmembre/dashboardmem
     UcaRechComponent,
     ResponsableComponent,
     ExpressionBesoinsComponent,
+    LandingPageComponent,
 
   ],
   imports: [

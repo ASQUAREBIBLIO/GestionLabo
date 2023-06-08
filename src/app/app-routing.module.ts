@@ -4,9 +4,11 @@ import { MembreListComponent } from './components/membre-list/membre-list.compon
 import { EtablissementComponent } from './components/etablissement/etablissement.component';
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 import { ResponsableComponent } from './components/responsable/responsable.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 //import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
+  {path: '', component: LandingPageComponent},
   {path: 'membres', component: MembreListComponent},
   {path: 'etablissements', component: EtablissementComponent},
   {path: 'laboratoires', component: LaboratoireComponent},
