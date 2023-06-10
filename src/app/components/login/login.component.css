@@ -1,0 +1,74 @@
+
+  /* ---------- GENERAL ---------- */
+  * {
+    box-sizing: inherit;
+  }
+  
+  /* ---------- BUTTON ---------- */
+  
+  .button {
+    background-color: rgba(167, 42, 42, 0.764);
+    color: #fff;
+    padding: 10px 15px;
+    border: 0;
+  }
+  
+  .button:focus,
+  .button:hover {
+    background-color: rgba(122, 64, 64, 0.764);
+  }
+
+  
+  /* ---------- LOGIN ---------- */
+  .login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(42, 29, 68, 0.408);
+  }
+
+  .login_card{
+    width: 500px;
+  }
+  
+  .login__header {
+    background-color: rgba(167, 42, 42, 0.764);
+    border-top-left-radius: 1.25em;
+    border-top-right-radius: 1.25em;
+    color: #fff;
+    padding: 1.25em 1.625em;
+  }
+  
+  .login__header :first-child {
+    margin-top: 0;
+  }
+  
+  .login__header :last-child {
+    margin-bottom: 0;
+  }
+  
+  .login__form {
+    background-color: #fff;
+    border-bottom-left-radius: 1.25em;
+    border-bottom-right-radius: 1.25em;
+    color: #777;
+    display: grid;
+    gap: 0.875em;
+    padding: 1.25em 1.625em;
+  }
+  
+  .login input {
+    border-radius: 5px;
+    border: 0;
+  }
+  
+  .login input[type="email"],
+  .login input[type="password"] {
+    background-color: #eee;
+    color: #777;
+    padding: 10px 15px;
+    width: 100%;
+  }
+  
