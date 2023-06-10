@@ -22,6 +22,9 @@ import { AdminsModule } from './components/admins/admins.module';
 import { DashboardmembreModule } from './components/dashboardmembre/dashboardmembre.module';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/Auth/auth.service';
+import { AdminGuardService } from './services/adminGuard/admin-guard.service';
+import { MembreGuardService } from './services/membreGuard/membre-guard.service';
 
 
 
@@ -55,7 +58,10 @@ import { LoginComponent } from './components/login/login.component';
     LaboratoireService,
     ProjetService,
     UcaRechService,
-    ResponsableService
+    ResponsableService,
+    AuthService,
+    AdminGuardService,
+    MembreGuardService
   ],
   bootstrap: [AppComponent]
 })
