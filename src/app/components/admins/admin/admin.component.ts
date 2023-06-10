@@ -5,6 +5,7 @@ import { IAdmin } from 'src/app/models/IAdmin';
 import {IEtablissement} from 'src/app/models/IEtablissement'
 import { ILaboratoire } from 'src/app/models/ILaboratoire';
 import { IMembre } from 'src/app/models/IMembre';
+import { AuthService } from 'src/app/services/Auth/auth.service';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { EtablissementService } from 'src/app/services/etablissement/etablissement.service';
 import { LaboratoireService } from 'src/app/services/laboratoire/laboratoire.service';
@@ -28,6 +29,8 @@ export class AdminComponent {
   membresLength: number = 0;
   laboLength: number = 0;
   eLength: number = 0;
+
+  authAdmin!: IAdmin;
 
   //Post
   etablissement: IEtablissement = {
@@ -77,6 +80,7 @@ export class AdminComponent {
     this.getEtablissements();
     this.getMembres();
     this.getLaboratoires();
+    this.getAuthAdmin();
   }
 
   getMembres() {
@@ -261,6 +265,18 @@ export class AdminComponent {
         console.log('Error fetching admins:', error);
       }
     );
+  }
+
+  getAuthAdmin(){
+   
+    this.adminService.getAdminById(Number(localStorage.getItem('authId'))).subscribe(
+      response => {
+        this.authAdmin = response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
   createAdmin(membre: IAdmin) {

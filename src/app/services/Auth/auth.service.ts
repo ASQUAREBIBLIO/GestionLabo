@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private loggedIn = false;
   private role!: string | null;
+  private id!: number;
 
   constructor(private http: HttpClient) {}
 
@@ -19,6 +20,7 @@ export class AuthService {
 
   handleLoginResponse(response: any) {
     this.role = response.role;
+    localStorage.setItem('authId', response.token.split('+')[1]);
     this.loggedIn = true;
   }
 
