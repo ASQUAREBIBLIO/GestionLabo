@@ -1,0 +1,19 @@
+<form (ngSubmit)="login()">
+    <label for="username">Nom d'utilisateur:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="username">
+  
+    <label for="password">Mot de passe:</label>
+    <input type="password" id="password" name="password" [(ngModel)]="password">
+  
+    <label for="role">Rôle:</label>
+    <select id="role" name="role" [(ngModel)]="role">
+      <option value="admin">Admin</option>
+      <option value="directeur">Directeur</option>
+      <option value="membre">Membre</option>
+      <option value="responsable-marche">Responsable Marché</option>
+      <option value="responsable-finance">Responsable Finance</option>
+    </select>
+  
+    <button type="submit">Se connecter</button>
+  </form>
+  

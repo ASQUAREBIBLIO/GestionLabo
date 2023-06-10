@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MembreListComponent } from './components/membre-list/membre-list.component';
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminsModule } from './components/admins/admins.module';
 import { DashboardmembreModule } from './components/dashboardmembre/dashboardmembre.module';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -36,6 +37,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     ResponsableComponent,
     ExpressionBesoinsComponent,
     LandingPageComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -44,7 +46,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     HttpClientModule,
     BrowserAnimationsModule,
     AdminsModule,
-    DashboardmembreModule
+    DashboardmembreModule,
+    FormsModule
   ],
   providers: [
     MembreService,

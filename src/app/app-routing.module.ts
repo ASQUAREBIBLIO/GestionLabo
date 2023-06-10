@@ -5,6 +5,7 @@ import { EtablissementComponent } from './components/etablissement/etablissement
 import { LaboratoireComponent } from './components/laboratoire/laboratoire.component';
 import { ResponsableComponent } from './components/responsable/responsable.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LoginComponent } from './components/login/login.component';
 //import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'etablissements', component: EtablissementComponent},
   {path: 'laboratoires', component: LaboratoireComponent},
   {path: 'responsables', component: ResponsableComponent},
+  {path: 'login', component: LoginComponent},
 
   //{path: 'admin/dashboard', component: AdminComponent}
 ];
