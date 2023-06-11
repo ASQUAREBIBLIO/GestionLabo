@@ -472,8 +472,8 @@
 
 				<div class="form-group">
 					<label for="expressionBesoin">expressionBesoin</label>
-					<select class="form-control" id="expressionBesoin" name="expressionBesoin" [(ngModel)] ="expressionBesoin.type" required>
-						<option *ngFor="let type of typebesoins" [value]="type.id">{{type.type}}</option>
+					<select class="form-control" id="expressionBesoin" name="expressionBesoin" [(ngModel)]="expressionBesoin.type" required>
+					  <option *ngFor="let typebe of typebesoins" [value]="typebe">{{ typebe.type }}</option>
 					</select>
 				</div>
                 <!-- <div class="form-group row">

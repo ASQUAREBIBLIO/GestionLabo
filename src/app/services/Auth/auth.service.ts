@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IMembre } from 'src/app/models/IMembre';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,13 @@ export class AuthService {
 
   isDirector(){
     return this.role === "DIRECTOR";
+  }
+
+  private currentMember!: IMembre;
+
+  // Method to retrieve the ID of the current member
+  getCurrentMemberId(): number | undefined {
+    // Retrieve the ID from the current member object
+    return this.currentMember.id;
   }
 }
