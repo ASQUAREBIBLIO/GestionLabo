@@ -25,6 +25,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/Auth/auth.service';
 import { AdminGuardService } from './services/adminGuard/admin-guard.service';
 import { MembreGuardService } from './services/membreGuard/membre-guard.service';
+import { DirectorGuardService } from './services/direcorGuard/director-guard.service';
+import { DirectorsModule } from './components/directors/directors.module';
 
 
 
@@ -40,7 +42,7 @@ import { MembreGuardService } from './services/membreGuard/membre-guard.service'
     ResponsableComponent,
     ExpressionBesoinsComponent,
     LandingPageComponent,
-    LoginComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -50,6 +52,7 @@ import { MembreGuardService } from './services/membreGuard/membre-guard.service'
     BrowserAnimationsModule,
     AdminsModule,
     DashboardmembreModule,
+    DirectorsModule,
     FormsModule
   ],
   providers: [
@@ -61,7 +64,8 @@ import { MembreGuardService } from './services/membreGuard/membre-guard.service'
     ResponsableService,
     AuthService,
     AdminGuardService,
-    MembreGuardService
+    MembreGuardService,
+    DirectorGuardService
   ],
   bootstrap: [AppComponent]
 })

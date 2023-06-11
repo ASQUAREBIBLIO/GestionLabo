@@ -9,6 +9,7 @@ export class AuthService {
   private loggedIn = false;
   private role!: string | null;
   private id!: number;
+  private tokenKey: string = 'authId';
 
   constructor(private http: HttpClient) {}
 
@@ -20,13 +21,20 @@ export class AuthService {
 
   handleLoginResponse(response: any) {
     this.role = response.role;
-    localStorage.setItem('authId', response.token.split('+')[1]);
+    localStorage.setItem(this.tokenKey, response.token.split('+')[1]);
     this.loggedIn = true;
   }
 
   logout() {
+    //free the local storage
+    localStorage.removeItem(this.tokenKey);
     this.role = null;
     this.loggedIn = false;
+  }
+
+  getToken(): string | null {
+    // Retrieve the token from local storage
+    return localStorage.getItem(this.tokenKey);
   }
 
   isLoggedIn() {
@@ -39,5 +47,9 @@ export class AuthService {
 
   isMember() {
     return this.role === "MEMBRE";
+  }
+
+  isDirector(){
+    return this.role === "DIRECTOR";
   }
 }

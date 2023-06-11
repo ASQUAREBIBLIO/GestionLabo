@@ -19,10 +19,20 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
         this.authService.handleLoginResponse(response);
+
+        //admin role
         if (this.authService.isAdmin()) {
           this.router.navigate(['/admin/dashboard']);
-        } else if (this.authService.isMember()) {
+        } 
+        
+        //member role
+        else if (this.authService.isMember()) {
           this.router.navigate(['/membre/dashboard']);
+        }
+
+        //director role
+        else if (this.authService.isDirector()) {
+          this.router.navigate(['/directeur/dashboard']);
         }
       },
       (error) => {
