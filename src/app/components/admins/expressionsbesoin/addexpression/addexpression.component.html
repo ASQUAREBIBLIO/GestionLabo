@@ -469,6 +469,13 @@
                         <input class="form-control" type="number" [(ngModel)]="expressionBesoin.montantEffet" name="montantEffet" required>
                     </div>
                 </div>
+
+				<div class="form-group">
+					<label for="expressionBesoin">expressionBesoin</label>
+					<select class="form-control" id="expressionBesoin" name="expressionBesoin" [(ngModel)] ="expressionBesoin.type" required>
+						<option *ngFor="let type of typebesoins" [value]="type.id">{{type.type}}</option>
+					</select>
+				</div>
                 <!-- <div class="form-group row">
                     <label class="col-sm-12 col-md-2 col-form-label">IsValid</label>
                     <div class="col-sm-12 col-md-10">
