@@ -404,8 +404,9 @@
                             <div id="chart"><img src="assets/images/banner-img.png" alt=""></div>
                         </div>
                         <div class="widget-data text-white">
-                            <div class="h4 mb-0 text-white">15</div>
-                            <div class="weight-600 font-14">Etablissements</div>
+                            <!-- <div class="h4 mb-0 text-white">15</div>
+                            <div class="weight-600 font-14">Etablissements</div> -->
+                            <div class="h4 mb-0 text-white" *ngIf="authMembre">{{authMembre.laboratoire.etablissement}}</div>
                         </div>
                     </div>
                 </div>
@@ -417,8 +418,8 @@
                             <div id="chart2"> <img src="assets/images/banner-img.png" alt=""></div>
                         </div>
                         <div class="widget-data text-white">
-                            <div class="h4 mb-0 text-white">15</div>
-                            <div class="weight-600 font-14">Laboratoires</div>
+                            <!-- <div class="h4 mb-0 text-white">15</div> -->
+                            <div class="h4 mb-0 text-white" *ngIf="authMembre">{{authMembre.laboratoire.nomLabo}}</div>
                         </div>
                     </div>
                 </div>
@@ -430,8 +431,9 @@
                             <div id="chart3"><img src="assets/images/banner-img.png" alt=""></div>
                         </div>
                         <div class="widget-data text-white">
-                            <div class="h4 mb-0 text-white">15</div>
-                            <div class="weight-600 font-14">Membres</div>
+                            <!-- <div class="h4 mb-0 text-white">15</div>
+                            <div class="weight-600 font-14">Membres</div> -->
+                            <div class="h4 mb-0 text-white" *ngIf="authMembre">{{authMembre.nom}}</div>
                         </div>
                     </div>
                 </div>
