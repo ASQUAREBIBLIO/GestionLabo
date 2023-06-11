@@ -72,6 +72,7 @@ export class AdminComponent {
     private etablissementService: EtablissementService,
     private membreService: MembreService,
     private laboratoireService: LaboratoireService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
@@ -94,6 +95,14 @@ export class AdminComponent {
         console.log('Error fetching admins:', error);
       }
     );
+  }
+
+  setMembreAsDirector(membreId: number) {
+    this.membreService.setMembreAsDirector(membreId, true).subscribe(
+      response => {
+
+      }
+    )
   }
 
   createMembre(membreForm: NgForm) {
@@ -269,7 +278,7 @@ export class AdminComponent {
 
   getAuthAdmin(){
    
-    this.adminService.getAdminById(Number(localStorage.getItem('authId'))).subscribe(
+    this.adminService.getAdminById(Number(localStorage.getItem('authId')?.split("+")[1])).subscribe(
       response => {
         this.authAdmin = response;
       },
@@ -279,6 +288,9 @@ export class AdminComponent {
     )
   }
 
+  logout() {
+    this.authService.logout();
+  }
   createAdmin(membre: IAdmin) {
     this.adminService.createAdmin(membre).subscribe(
       response => {

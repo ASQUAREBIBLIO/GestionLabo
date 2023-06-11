@@ -9,11 +9,16 @@ import { Observable } from 'rxjs';
 export class MembreService {
 
   private membresUrl = 'http://localhost:8082/membres';
+  private valeur = true;
 
   constructor(private http: HttpClient) {}
 
   getAllMembres(): Observable<IMembre[]> {
     return this.http.get<IMembre[]>(this.membresUrl);
+  }
+
+  setMembreAsDirector(id: number, isDirector: boolean): Observable<IMembre> {
+    return this.http.post<IMembre>(`${this.membresUrl}/${id}?isDirector=${isDirector}`, isDirector);
   }
 
   getMembreById(id: number): Observable<IMembre> {

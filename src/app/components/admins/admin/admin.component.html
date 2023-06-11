@@ -109,10 +109,10 @@
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+						<span class="user-name" *ngIf="authAdmin">Bonjour, {{authAdmin.nom}}</span>
 						<span class="user-icon" style="box-shadow: 0;">
 							<img src="assets/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name" *ngIf="authAdmin">{{authAdmin.nom}}</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -241,11 +241,12 @@
 				</ul>
 			</div>
 		</div>
-		<a [routerLink]="['/admin/dashboard/membres']" class="dropdown-toggle">
-			<span style="position: absolute;bottom: 0;background-color: rgba(167, 42, 42, 0.764);width:100%;padding:10px;text-align: center;color: #fff;font-weight: bold;">
-				<i class="dw dw-logout"></i> Déconnexion
-			</span>
-		</a>
+
+		<form (ngSubmit) = "logout()" style="position: absolute;bottom: 0;background-color: rgba(167, 42, 42, 0.764);width:100%;padding:10px;
+		text-align: center;color: #fff;font-weight: bold;">
+				<i class="dw dw-logout"></i>
+				<button type="submit" >Déconnexion</button>
+		</form>
 	</div>
 	<div class="mobile-menu-overlay"></div>
 
@@ -643,6 +644,10 @@
 				<ng-template #dirBlock>
 					<span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
 				</ng-template>
+
+				<form (ngSubmit) = "setMembreAsDirector(SelectedMembre.id!)">
+					<button type="submit">Set As Director</button>
+				</form>
 			</div>
 		</div>
 		</div>

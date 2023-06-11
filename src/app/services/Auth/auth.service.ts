@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = false;
   private role!: string | null;
   private id!: number;
   private tokenKey: string = 'authId';
@@ -21,15 +20,12 @@ export class AuthService {
 
   handleLoginResponse(response: any) {
     this.role = response.role;
-    localStorage.setItem(this.tokenKey, response.token.split('+')[1]);
-    this.loggedIn = true;
+    localStorage.setItem(this.tokenKey, response.token);
   }
 
   logout() {
     //free the local storage
     localStorage.removeItem(this.tokenKey);
-    this.role = null;
-    this.loggedIn = false;
   }
 
   getToken(): string | null {
@@ -37,8 +33,10 @@ export class AuthService {
     return localStorage.getItem(this.tokenKey);
   }
 
-  isLoggedIn() {
-    return this.loggedIn;
+  isLoggedIn(): boolean {
+    if(this.getToken()){
+      return true;
+    } else return false;
   }
 
   isAdmin() {
