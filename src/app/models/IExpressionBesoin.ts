@@ -9,11 +9,12 @@ export interface IExpressionBesoin{
     dateEffet: Date;
     montantEffet: Date;
     isValid: boolean;
-    membre?: {
-        id: number;
-        nom: string;
-        prenom: string;
-    };
+    // membre?: {
+    //     id: number;
+    //     nom: string;
+    //     prenom: string;
+    // };
+    membre?: IMembre;
     responsable?: {
         id: number;
         nom: string;

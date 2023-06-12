@@ -6,6 +6,8 @@ import { ITypeBesoin } from 'src/app/models/ITypeBesoin';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/expression-besoins.service';
 import { TypeBesoinService } from 'src/app/services/typebesoin/type-besoin.service';
+import { MembreService } from 'src/app/services/membre/membre.service';
+
 
 
 @Component({
@@ -14,6 +16,8 @@ import { TypeBesoinService } from 'src/app/services/typebesoin/type-besoin.servi
   styleUrls: ['../../../../vendors/styles/style.css', '../../../../srctemplate/plugins/datatables/css/dataTables.bootstrap4.min.css','../../../../vendors/styles/core.css','../../../../vendors/styles/icon-font.min.css'],
 })
 export class AddexpressionComponent implements OnInit{
+  
+  authMembre!: IMembre;
 
   typebesoins: ITypeBesoin[] = [];
 
@@ -28,9 +32,25 @@ export class AddexpressionComponent implements OnInit{
     montantEffet: new Date(),
     isValid: false,
     membre: {
-      id: 1,
+      id: 0,
       nom: '',
-      prenom: ''
+      prenom: '',
+      email: '',
+      password: '',
+      director: false,
+      laboratoire: {
+        id: 0,
+        nomLabo: '',
+        etablissement: {
+          id: 0,
+          nom: ''
+        }
+      },
+      admin: {
+        id: 0
+      },
+      projets: [],
+      expressionBesoins: []
     },
     responsable: {
       id: 1,
@@ -45,6 +65,7 @@ export class AddexpressionComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllTypeBesoin();
+    this.getAuthMembre();
   }
 
 
@@ -52,25 +73,33 @@ export class AddexpressionComponent implements OnInit{
     private router: Router,
     private expressionService: ExpressionBesoinsService,
     private typeBesoinService : TypeBesoinService,
-    private authService: AuthService
+    private authService: AuthService,
+    private membreService: MembreService
+
   ) { }
 
   createExpressionBesoins() {
-    const memberId = this.authService.getCurrentMemberId();
-    if (memberId !== undefined) {
-      this.expressionBesoin.membre.id = memberId;
+    const memberId = Number(localStorage.getItem('authId'));
   
-      this.expressionService.createExpressionBesoins(this.expressionBesoin).subscribe(
+    if (!isNaN(memberId)) {
+      this.membreService.getMembreById(memberId).subscribe(
         response => {
-          console.log('Needs expression created successfully.');
-          // Additional logic if needed
-          this.router.navigate(['/listexpression']);
+          this.expressionBesoin.membre = response;
+  
+          this.expressionService.createExpressionBesoins(this.expressionBesoin).subscribe(
+            response => {
+              console.log('Needs expression created successfully.');
+              // Additional logic if needed
+              this.router.navigate(['/listexpression']);
+            },
+            error => console.log(error)
+          );
         },
         error => console.log(error)
       );
     } else {
-      console.log('Current member ID is undefined.');
-      // Handle the case when the current member ID is undefined
+      console.log('Invalid member ID.');
+      // Handle the case when the member ID is not a valid number
     }
   }
 
@@ -86,5 +115,24 @@ export class AddexpressionComponent implements OnInit{
       }
     );
   }
+
+  getAuthMembre() {
+  const memberId = Number(localStorage.getItem('authId'));
+
+  if (!isNaN(memberId)) {
+    this.membreService.getMembreById(memberId).subscribe(
+      response => {
+        this.authMembre = response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  } else {
+    console.log('Invalid member ID.');
+    // Handle the case when the member ID is not a valid number
+  }
+}
+
 
 }
