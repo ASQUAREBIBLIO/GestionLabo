@@ -489,6 +489,7 @@
 								</div>
 								<div class="modal-body col-sm-12">
 									<form (ngSubmit)="createMembre(membreForm)" #membreForm="ngForm" novalidate>
+										<input *ngIf="authAdmin" type="hidden" name="admin" [value]="authAdmin.id!" [(ngModel)] ="membre.admin.id!">
 										<div class="form-group">
 										  <label for="nom">Nom</label>
 										  <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de membre"
@@ -509,10 +510,7 @@
 											<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"
 												[(ngModel)] ="membre.password" required="">
 										</div>
-										<div class="form-group">
-											<input type="hidden" class="form-control" id="role" name="role"
-												[(ngModel)] ="membre.role" [value]="null">
-										</div>
+										
 										<div class="form-group">
 											<label for="labo">Laboratoire</label>
 											<select class="form-control" id="labo" name="laboratoire" [(ngModel)] ="membre.laboratoire.id" required>
@@ -548,9 +546,9 @@
 								</ng-template>
 							</td>
 							<td>
-								<span *ngIf="!membre.director else dirBlock" style="background-color: rgba(73, 106, 225, 0.53);color: #fff;padding: 5px; ">Membre</span>
+								<span *ngIf="!membre.director else dirBlock" class="badge badge-primary">Membre</span>
 								<ng-template #dirBlock>
-									<span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
+									<span class="badge badge-danger">Directeur</span>
 								</ng-template>
 							</td>
 							
@@ -628,24 +626,24 @@
 	</div>
 
 	<!-- Modal Membre Details-->
-	<div *ngIf="SelectedMembre && SelectedMembre.nom" class="modal fade" id="membreDetailsModal" tabindex="-1" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
-		<div class="modal-dialog col-sm-12" role="document">
+	<div *ngIf="SelectedMembre && SelectedMembre.nom" class="modal fade bd-example-modal-lg" id="membreDetailsModal" tabindex="-1" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-			<h5 class="modal-title" id="membreModalLabel">Details de Membre</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
+			<div class="modal-header bg-light">
+				<h5 class="modal-title" id="membreModalLabel">{{SelectedMembre.nom}} {{SelectedMembre.prenom}}</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="modal-body">
-				<h5>{{SelectedMembre.nom}} {{SelectedMembre.prenom}}</h5>
+				<h5></h5>
 				<a href="mailto:{{SelectedMembre.email}}">{{SelectedMembre.email}}</a><br>
 				<span *ngIf="!SelectedMembre.director else dirBlock" style="background-color: rgba(73, 106, 225, 0.53);color: #fff;padding: 5px; ">Membre</span>
 				<ng-template #dirBlock>
 					<span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
 				</ng-template>
 
-				<form (ngSubmit) = "setMembreAsDirector(SelectedMembre.id!)">
+				<form (ngSubmit) = "setMembreAsDirector(SelectedMembre.id!)" *ngIf="!SelectedMembre.director">
 					<button type="submit">Set As Director</button>
 				</form>
 			</div>

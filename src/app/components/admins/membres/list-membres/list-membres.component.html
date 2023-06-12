@@ -354,7 +354,7 @@
             <table class="data-table table nowrap">
                 <thead>
                     <tr>
-                        <th class="table-plus datatable-nosort">#</th>
+                      
                         <th>Nom & Prénom</th>
                         <th>Email</th>
                         <th>Laboratoire</th>
@@ -364,9 +364,7 @@
                 </thead>
                 <tbody>
                     <tr  *ngFor="let membre of membres">
-                        <td class="table-plus">
-                            {{membre.id}}
-                        </td>
+                       
                         <td>
                             {{membre.nom}} {{membre.prenom}}
                         </td>
@@ -378,9 +376,9 @@
                             </ng-template>
                         </td>
                         <td>
-                            <span *ngIf="!membre.director else dirBlock" style="background-color: rgba(73, 106, 225, 0.53);color: #fff;padding: 5px; ">Membre</span>
+                            <span *ngIf="!membre.director else dirBlock" class="badge badge-primary">Membre</span>
                             <ng-template #dirBlock>
-                                <span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
+                                <span class="badge badge-danger">Directeur</span>
                             </ng-template>
                         </td>
                         
@@ -396,7 +394,7 @@
                                         data-target="#membreDetailsModal">
                                         <i class="dw dw-eye"></i>View
                                     </a>
-                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                                    <a class="dropdown-item" (click)="editMembre(membre.id!)"><i class="dw dw-edit2"></i> Edit</a>
                                     <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
                                 </div>
                             </div>
@@ -411,27 +409,79 @@
     </div>
 </div>
 
-<!-- Modal Membre Details
-<div *ngIf="SelectedMembre!==null" class="modal fade" id="membreDetailsModal" tabindex="-3" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
-    <div class="modal-dialog col-sm-12" role="document">
+<div *ngIf="SelectedMembre && SelectedMembre.nom" class="modal fade bd-example-modal-lg position-relative" id="membreDetailsModal" tabindex="-1" role="dialog" aria-labelledby="membreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="membreModalLabel">Details de Membre</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="modal-header bg-light">
+            <h5 class="modal-title" id="membreModalLabel">Details de membre</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
-            <h5>{{SelectedMembre.nom}} {{SelectedMembre.prenom}}</h5>
-            <a href="mailto:{{SelectedMembre.email}}">{{SelectedMembre.email}}</a><br>
-            <span *ngIf="!SelectedMembre.director else dirBlock" style="background-color: rgba(73, 106, 225, 0.53);color: #fff;padding: 5px; ">Membre</span>
-            <ng-template #dirBlock>
-                <span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
-            </ng-template>
+            <h6>{{SelectedMembre.nom}} {{SelectedMembre.prenom}} 
+                
+                <span *ngIf="!SelectedMembre.director else dirBlock" class="badge badge-primary">M</span>
+                <ng-template #dirBlock>
+                    <span class="badge badge-danger">D</span>
+                </ng-template>
+
+            </h6>
+            <a href="mailto:{{SelectedMembre.email}}" class="">{{SelectedMembre.email}}</a>
+
+            <form (ngSubmit) = "setMembreAsDirector(SelectedMembre.id!)" *ngIf="!SelectedMembre.director" class="p-2">
+                <button type="submit">Set As Director</button>
+            </form>
+            
+
+            <div class="row mt-4">
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="widget-data">
+                            <div class="h6 mb-0">{{SelectedMembre.laboratoire.nomLabo}}</div>
+                            <div class="weight-600 font-14">Laboratoire</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="widget-data">
+                            <div class="h6 mb-0">{{SelectedMembre.laboratoire.etablissement!.nom}}</div>
+                            <div class="weight-600 font-14">Etablissement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="widget-data">
+                            <div class="h6 mb-0">{{SelectedMembre.expressionBesoins}}</div>
+                            <div class="weight-600 font-14">Besoins Traités</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="widget-data">
+                            <div class="h6 mb-0">$6060</div>
+                            <div class="weight-600 font-14">Dotation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
         </div>
     </div>
     </div>
-</div> -->
+</div>
 
 <!-- js -->
 <script src="../../../vendors/scripts/core.js"></script>

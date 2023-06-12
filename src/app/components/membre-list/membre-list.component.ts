@@ -38,16 +38,16 @@ export class MembreListComponent implements OnInit {
       );
     }
   
-    updateMembre(membreId: number, membre: IMembre) {
-      this.membreService.updateMembre(membreId, membre).subscribe(
-        response => {
-          console.log('Etablissement updated successfully.');
-          // Refresh projets list
-          this.getMembres();
-        },
-        error => console.log(error)
-      );
-    }
+    // updateMembre(membreId: number, membre: IMembre) {
+    //   this.membreService.updateMembre(membreId, membre).subscribe(
+    //     response => {
+    //       console.log('Etablissement updated successfully.');
+    //       // Refresh projets list
+    //       this.getMembres();
+    //     },
+    //     error => console.log(error)
+    //   );
+    // }
 
     deleteMembre(id: number) {
       if (confirm('Are you sure you want to delete this membre?')) {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ILaboratoire } from 'src/app/models/ILaboratoire';
 import { IMembre } from 'src/app/models/IMembre';
 import { LaboratoireService } from 'src/app/services/laboratoire/laboratoire.service';
@@ -19,7 +20,8 @@ export class ListMembresComponent {
   SelectedMembre!: IMembre;
 
     constructor(private membreService: MembreService,
-      private laboratoireService: LaboratoireService) { }
+      private laboratoireService: LaboratoireService,
+      private router: Router) { }
 
     ngOnInit() {
       this.getMembres();
@@ -35,6 +37,14 @@ export class ListMembresComponent {
           console.log('Error fetching membres:', error);
         }
       );
+    }
+
+    setMembreAsDirector(membreId: number) {
+      this.membreService.setMembreAsDirector(membreId, true).subscribe(
+        response => {
+  
+        }
+      )
     }
 
     getLaboratoires() {
@@ -62,17 +72,21 @@ export class ListMembresComponent {
         error => console.log(error)
       );
     }
-  
-    updateMembre(membreId: number, membre: IMembre) {
-      this.membreService.updateMembre(membreId, membre).subscribe(
-        response => {
-          console.log('Etablissement updated successfully.');
-          // Refresh projets list
-          this.getMembres();
-        },
-        error => console.log(error)
-      );
+
+    editMembre(membreId: number) {
+      this.router.navigate(['/admin/dashboard/membres/edit', membreId]);
     }
+  
+    // updateMembre(membreId: number, membre: IMembre) {
+    //   this.membreService.updateMembre(membreId, membre).subscribe(
+    //     response => {
+    //       console.log('Etablissement updated successfully.');
+    //       // Refresh projets list
+    //       this.getMembres();
+    //     },
+    //     error => console.log(error)
+    //   );
+    // }
 
     deleteMembre(id: number) {
       if (confirm('Are you sure you want to delete this membre?')) {

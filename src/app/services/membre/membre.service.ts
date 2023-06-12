@@ -29,8 +29,8 @@ export class MembreService {
     return this.http.post<IMembre>(this.membresUrl, membre);
   }
 
-  updateMembre(id: number, membre: IMembre): Observable<IMembre> {
-    return this.http.put<IMembre>(`${this.membresUrl}/${id}`, membre);
+  updateMembre(membre: IMembre): Observable<IMembre> {
+    return this.http.put<IMembre>(`${this.membresUrl}/${membre.id}`, membre);
   }
 
   deleteMembre(id: number): Observable<void> {

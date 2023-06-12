@@ -253,27 +253,32 @@
 		<div class="pd-20 card-box mb-30">
 			<div class="clearfix">
 				<div class="pull-left">
-					<h4 class=" mb-30">Modifier Laboratoire</h4>
+					<h4 class=" mb-30">Modifier Membre</h4>
 				</div>
 			
 			</div>
-			<form #editForm="ngForm" novalidate>
-				<div class="form-group col-xl-6">
-					<label for="nom">Nom</label>
-					<input type="text" class="form-control" id="nom" name="nom" placeholder="UCA" [(ngModel)]="laboratoire.nomLabo">
-				</div>
-
+            <form #editForm="ngForm" novalidate>
                 <div class="form-group col-xl-6">
-                    <label for="id">Etablissement</label>
-                    <select class="form-control" id="etablissement" name="id" 
-                        [(ngModel)] ="laboratoire.etablissement.id" required>
-                        <option *ngFor="let etabliss of etablissements" [value]="etabliss.id">{{etabliss.nom}}</option>
+                  <label for="nom">Nom</label>
+                  <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="membre.nom">
+                </div>
+                <div class="form-group col-xl-6">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="membre.prenom">
+                </div>
+                <div class="form-group col-xl-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+					[(ngModel)]="membre.email">
+                  </div>
+                <div class="form-group col-xl-6">
+                    <label for="labo">Laboratoire</label>
+                    <select class="form-control" id="labo" name="nomLabo">
+                        <option *ngFor="let lab of laboratoires" value={{lab.id}}>{{lab.nomLabo}}</option>
                     </select>
                 </div>
-		
-				<button class="btn btn-primary col-xl-2 border-0" style="margin-left: 15px;background-color: rgba(167, 42, 42, 0.764)" (click)="updateLaboratoire()">Modifier</button>
-		
-			</form>
+                <button type="submit" class="btn btn-primary col-xl-2 border-0" style="margin-left: 15px;background-color: rgba(167, 42, 42, 0.764);" (click)="updateMembre()">Modifier</button>
+            </form>
 		</div>
 		
 		

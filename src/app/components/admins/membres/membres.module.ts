@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { MembresRoutingModule } from './membres-routing.module';
 import { ListMembresComponent } from './list-membres/list-membres.component';
+import { EditMembreComponent } from './edit-membre/edit-membre.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ListMembresComponent
+    ListMembresComponent,
+    EditMembreComponent
   ],
   imports: [
     CommonModule,
-    MembresRoutingModule
+    MembresRoutingModule,
+    FormsModule
   ]
 })
 export class MembresModule { }

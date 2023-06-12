@@ -1,9 +1,6 @@
-import { IAdmin } from "./IAdmin";
+
 import { IExpressionBesoin } from "./IExpressionBesoin";
-import { ILaboratoire } from "./ILaboratoire";
 import { IProjet } from "./IProjet";
-import { IUcaRech } from "./IUcaRech";
-import { Role } from "./Role";
 
 export interface IMembre{
     id?: number;
@@ -12,16 +9,17 @@ export interface IMembre{
     email: string;
     password: string;
     director: boolean;
-    role: Role | null;
     laboratoire: {
         id?: number;
         nomLabo?: string;
         etablissement?:{
-            id: number; 
+            id: number;
+            nom: string;
         }
     };
-    admin?: IAdmin;
+    admin: {
+        id?: number;
+    };
     projets?: IProjet[];
-    ucaRechs?: IUcaRech[];
     expressionBesoins?: IExpressionBesoin[];
 }

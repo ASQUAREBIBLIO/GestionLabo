@@ -49,9 +49,11 @@ export class AdminComponent {
     prenom: '',
     email: '',
     password: '',
-    role: null,
     director: false,
     laboratoire:{
+      id: undefined
+    },
+    admin: {
       id: undefined
     }
   }
