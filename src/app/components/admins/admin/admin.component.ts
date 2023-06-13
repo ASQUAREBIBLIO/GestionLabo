@@ -56,7 +56,7 @@ export class AdminComponent {
     admin: {
       id: undefined
     },
-    expressionBesoins: undefined
+    expressionBesoins: [],
   }
 
   //By id

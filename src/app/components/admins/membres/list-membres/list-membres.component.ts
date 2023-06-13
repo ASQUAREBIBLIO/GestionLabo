@@ -19,7 +19,7 @@ export class ListMembresComponent {
   laboratoires!: ILaboratoire[];
   SelectedMembre!: IMembre;
 
-  expressionLength: number | undefined;
+  expressionLength: number = 0;
 
     constructor(private membreService: MembreService,
       private laboratoireService: LaboratoireService,
@@ -33,6 +33,7 @@ export class ListMembresComponent {
     getMembres() {
       this.membreService.getAllMembres().subscribe(
         response => {
+          response.map(res => {this.expressionLength = res.expressionBesoins.length;})
           this.membres = response;
         },
         error => {
@@ -62,7 +63,10 @@ export class ListMembresComponent {
 
     OpenMembreDetailsModal(membre: IMembre){
       this.SelectedMembre = membre;
-      this.expressionLength = this.SelectedMembre.expressionBesoins?.length;
+    //   this.membreService.getSumExpressions(this.SelectedMembre.id!).subscribe(
+    //     res => {
+    //       this.expressionLength = res;
+    //     })
     }
 
     createMembre(membre: IMembre) {

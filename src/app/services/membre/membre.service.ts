@@ -36,4 +36,9 @@ export class MembreService {
   deleteMembre(id: number): Observable<void> {
     return this.http.delete<void>(`${this.membresUrl}/${id}`);
   }
+
+  getSumExpressions(id: number): Observable<any> {
+    return this.http.get(`${this.membresUrl}/${id}/e/total`);
+  }
+
 }
