@@ -25,6 +25,7 @@ import { AdminGuardService } from './services/adminGuard/admin-guard.service';
 import { MembreGuardService } from './services/membreGuard/membre-guard.service';
 import { DirectorGuardService } from './services/direcorGuard/director-guard.service';
 import { DirectorsModule } from './components/directors/directors.module';
+import { DashboardmarcheComponent } from './components/dashboardmarche/dashboardmarche.component';
 
 
 
@@ -38,7 +39,8 @@ import { DirectorsModule } from './components/directors/directors.module';
     ResponsableComponent,
     ExpressionBesoinsComponent,
     LandingPageComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardmarcheComponent
 
   ],
   imports: [
