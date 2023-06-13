@@ -27,6 +27,7 @@ import { DirectorGuardService } from './services/direcorGuard/director-guard.ser
 import { DirectorsModule } from './components/directors/directors.module';
 import { DashboardmarcheComponent } from './components/dashboardrespomarche/dashboardmarche/dashboardmarche.component';
 import { DashboardrespomarcheModule } from './components/dashboardrespomarche/dashboardrespomarche.module';
+import { DotationsModule } from './components/admins/dotations/dotations.module';
 
 
 
@@ -53,7 +54,8 @@ import { DashboardrespomarcheModule } from './components/dashboardrespomarche/da
     DashboardmembreModule,
     DirectorsModule,
     FormsModule,
-    DashboardrespomarcheModule
+    DashboardrespomarcheModule,
+    DotationsModule
   ],
   providers: [
     MembreService,
