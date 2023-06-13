@@ -268,13 +268,19 @@
 				<div class="form-group row">
 					<label class="col-sm-12 col-md-2 col-form-label">MontantApprox</label>
 					<div class="col-sm-12 col-md-10">
-						<input type="number" class="form-control" id="montantApprox" name="montantApprox" placeholder="1500" [(ngModel)]="expressionbesoin.montantApprox">
+						<input type="number" class="form-control" id="montantApprox" name="montantApprox" placeholder="1500" [(ngModel)]="expressionbesoin.montantApprox" required>
 					</div>
 				</div>
                 <div class="form-group row">
 					<label class="col-sm-12 col-md-2 col-form-label">DateDem</label>
 					<div class="col-sm-12 col-md-10">
-						<input class="form-control" placeholder="Marrakech" type="text" name="dateDem" id="dateDem" [(ngModel)]="expressionbesoin.dateDem" required>
+						<input class="form-control" placeholder="2023-06-15" type="date" name="dateDem" id="dateDem" [(ngModel)]="expressionbesoin.dateDem" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">DateEffet</label>
+					<div class="col-sm-12 col-md-10">
+						<input class="form-control" placeholder="2023-06-15" type="date" name="dateEffet" id="dateEffet" [(ngModel)]="expressionbesoin.dateEffet" required>
 					</div>
 				</div>
 				<div class="form-group row">
@@ -283,12 +289,7 @@
 						<input class="form-control" placeholder="1500" type="number" name="montantEffet" id="montantEffet" [(ngModel)]="expressionbesoin.montantEffet" required>
 					</div>
 				</div>
-                <div class="form-group row">
-					<label class="col-sm-12 col-md-2 col-form-label">DateEffet</label>
-					<div class="col-sm-12 col-md-10">
-						<input class="form-control" placeholder="Marrakech" type="text" name="dateEffet" id="dateEffet" [(ngModel)]="expressionbesoin.dateEffet" required>
-					</div>
-				</div>
+                
 		
 				<button class="btn btn-primary" (click)="updateExpressionBesoins()">Update</button>
 		
