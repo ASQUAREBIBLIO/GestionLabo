@@ -335,35 +335,32 @@
                               </button>
                             </div>
                             <div class="modal-body col-sm-12">
-                                <form>
+                                <form (ngSubmit)="createExpressionBesoins()" #membreForm="ngForm" novalidate>
                                     <div class="form-group">
-                                      <label for="montantApprox">montantApprox</label>
-                                      <input type="number" class="form-control" id="montantApprox" placeholder="1500">
+                                      <label for="montantApprox">MontantApprox</label>
+                                      <input type="number" class="form-control" [(ngModel)]="expressionBesoin.montantApprox" id="montantApprox" placeholder="1500">
                                     </div>
                                     <div class="form-group">
-                                        <label for="dateDem">dateDem</label>
-                                        <input type="text" class="form-control" id="dateDem" placeholder="2023-06-15">
+                                      <label for="dateDem">DateDem</label>
+                                      <input type="text" class="form-control" [(ngModel)]="expressionBesoin.dateDem" id="dateDem" placeholder="2023-06-15">
                                     </div>
                                     <div class="form-group">
-                                        <label for="DateEffet">DateEffet</label>
-                                        <input type="text" class="form-control" id="DateEffet" aria-describedby="emailHelp" placeholder="2023-06-15">
+                                      <label for="dateEffet">DateEffet</label>
+                                      <input type="text" class="form-control" [(ngModel)]="expressionBesoin.dateEffet" id="dateEffet" aria-describedby="emailHelp" placeholder="2023-06-15">
                                     </div>
                                     <div class="form-group">
-                                        <label for="MontantEffet">MontantEffet</label>
-                                        <input type="number" class="form-control" id="MontantEffet" placeholder="1500">
-                                      </div>
-                                    <!-- <div class="form-group">
-                                        <label for="labo">Laboratoire</label>
-                                        <select class="form-control" id="labo">
-                                            
-                                        </select>
-                                    </div> -->
-                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                      <label for="montantEffet">MontantEffet</label>
+                                      <input type="number" class="form-control" [(ngModel)]="expressionBesoin.montantEffet" id="montantEffet" placeholder="1500">
+                                    </div>
+                                    <!-- Additional form fields -->
+                                    <button type="submit" class="btn btn-primary" style="right: 20px;top: 10px;background: linear-gradient(30deg, rgb(93, 93, 164), rgb(42, 29, 68));">Ajouter</button>
                                   </form>
+                                  
                             </div>
                           </div>
                         </div>
                       </div>
+            
             <table class="data-table table nowrap">
                 <thead>
                     <tr>

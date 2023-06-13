@@ -19,11 +19,51 @@ export class DashboardComponent {
   expressionbesoins: IExpressionBesoin[] = [];
   authMembre!: IMembre;
 
+  expressionBesoin: IExpressionBesoin = {
+    montantApprox: 0,
+    dateDem: new Date(),
+    dateEffet: new Date(),
+    montantEffet: new Date(),
+    isValid: false,
+    membre: {
+      id: 0,
+      nom: '',
+      prenom: '',
+      email: '',
+      password: '',
+      director: false,
+      laboratoire: {
+        id: 0,
+        nomLabo: '',
+        etablissement: {
+          id: 0,
+          nom: ''
+        }
+      },
+      admin: {
+        id: 0
+      },
+      projets: [],
+      expressionBesoins: []
+    },
+    responsable: {
+      id: 1,
+      nom: '',
+      prenom: ''
+    },
+    type: {
+      id: 1,
+      type: ''
+    }
+  };
+
   constructor(
     private membreService: MembreService,
     private expressionBesoinsService: ExpressionBesoinsService,
     private router: Router,
-    private authService : AuthService
+    private authService : AuthService,
+    private expressionService: ExpressionBesoinsService
+
   ) { }
 
   ngOnInit() {
@@ -68,4 +108,31 @@ export class DashboardComponent {
   editExpressionBesoins(expressionId: number) {
     this.router.navigate(['/expressionsbesoin/edit', expressionId]);
   }
+
+  createExpressionBesoins() {
+    const memberId = Number(localStorage.getItem('authId')?.split("+")[1]);
+  
+    if (!isNaN(memberId)) {
+      this.membreService.getMembreById(memberId).subscribe(
+        response => {
+          this.expressionBesoin.membre = response;
+  
+          this.expressionService.createExpressionBesoins(this.expressionBesoin).subscribe(
+            response => {
+              console.log('Needs expression created successfully.');
+              // Additional logic if needed
+              this.router.navigate(['/listexpression']);
+            },
+            error => console.log(error)
+          );
+        },
+        error => console.log(error)
+      );
+    } else {
+      console.log('Invalid member ID.');
+      // Handle the case when the member ID is not a valid number
+    }
+  }
+
+  
 }
