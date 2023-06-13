@@ -103,9 +103,9 @@ export class AdminComponent {
   }
 
   getValidExpressions() {
-    this.expressionBesoinService.getAllExpressionBesoins().subscribe(
+    this.expressionBesoinService.getValidExpression().subscribe(
       response => {
-        this.expressions = response;
+        this.expressions = response.slice(0, 10).sort((a, b) => { return b.id! - a.id!});;
       }
     )
   }

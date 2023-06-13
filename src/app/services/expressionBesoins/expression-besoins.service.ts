@@ -35,4 +35,8 @@ export class ExpressionBesoinsService {
   deleteExpressionBesoins(id: number): Observable<void> {
     return this.http.delete<void>(`${this.expressionUrl}/${id}`);
   }
+
+  getValidExpression(): Observable<IExpressionBesoin[]> {
+    return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/v`);
+  }
 }
