@@ -79,7 +79,7 @@ export class AddexpressionComponent implements OnInit{
   ) { }
 
   createExpressionBesoins() {
-    const memberId = Number(localStorage.getItem('authId'));
+    const memberId = Number(localStorage.getItem('authId')?.split("+")[1]);
   
     if (!isNaN(memberId)) {
       this.membreService.getMembreById(memberId).subscribe(
@@ -116,22 +116,37 @@ export class AddexpressionComponent implements OnInit{
     );
   }
 
-  getAuthMembre() {
-  const memberId = Number(localStorage.getItem('authId'));
+//   getAuthMembre() {
+//   const memberId = Number(localStorage.getItem('authId'));
 
-  if (!isNaN(memberId)) {
-    this.membreService.getMembreById(memberId).subscribe(
-      response => {
-        this.authMembre = response;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  } else {
-    console.log('Invalid member ID.');
-    // Handle the case when the member ID is not a valid number
-  }
+//   if (!isNaN(memberId)) {
+//     this.membreService.getMembreById(memberId).subscribe(
+//       response => {
+//         this.authMembre = response;
+//       },
+//       error => {
+//         console.log(error);
+//       }
+//     );
+//   } else {
+//     console.log('Invalid member ID.');
+//     // Handle the case when the member ID is not a valid number
+//   }
+// }
+getAuthMembre(){
+   
+  this.membreService.getMembreById(Number(localStorage.getItem('authId')?.split("+")[1])).subscribe(
+    response => {
+      this.authMembre = response;
+    },
+    error => {
+      console.log(error);
+    }
+  )
+}
+
+logout() {
+  this.authService.logout();
 }
 
 

@@ -109,10 +109,10 @@
         <div class="user-info-dropdown">
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                    <span class="user-name" *ngIf="authMembre">Bonjour, {{authMembre.nom}}</span>
                     <span class="user-icon" style="box-shadow: 0;">
                         <img src="assets/images/photo1.jpg" alt="">
                     </span>
-                    <span class="user-name" *ngIf="authMembre">{{authMembre.nom}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                     <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -210,187 +210,49 @@
             <i class="ion-close-round"></i>
         </div>
     </div>
-    <div class="menu-block custom-scroll">
+    <div class="menu-block custom-scroll mt-5">
         <div class="sidebar-menu" >
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a [routerLink]="['/dashboard']" class="dropdown-toggle">
-                        <span class="micon dw dw-house-1"></span><span class="mtext">Membre Dashboard</span>
+                    <a [routerLink]="['/membre/dashboard']" class="dropdown-toggle">
+                        <span class="micon dw dw-house-1"></span><span class="mtext font-weight-bold">Dashboard</span>
                     </a>
                 </li>
-                <li ngbDropdown class="dropdown">
+                <!-- <li ngbDropdown class="dropdown">
                     <a href="javascript:;" id="dropdownMenuButton" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="micon dw dw-house-1"></span><span class="mtext">Expression Besoin</span>
+                        <span class="micon dw dw-house-1"></span><span class="mtext font-weight-bold">Expression Besoin</span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" [routerLink]="['/listexpression']" >Liste ExpressionBesoin</a></li>
                         <li><a class="dropdown-item" [routerLink]="['/addexpression']" >Add ExpressionBesoin</a></li>
                         <li><a class="dropdown-item" [routerLink]="['/editexpression']" >Edit ExpressionBesoin</a></li>
                     </ul>
-                </li>
-                
+                </li> -->
                 <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="basic-table.html">Basic Tables</a></li>
-                        <li><a href="datatable.html">DataTables</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="calendar.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                    <a [routerLink]="['/listexpression']" class="dropdown-toggle">
+                        <i class="micon dw dw-search2"></i><span class="mtext font-weight-bold">Liste Besoin</span>
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-apartment"></span><span class="mtext"> UI Elements </span>
+                    <a [routerLink]="['/addexpression']" class="dropdown-toggle">
+                        <i class="micon dw dw-search2"></i><span class="mtext font-weight-bold">Add Besoin</span>
                     </a>
-                    <ul class="submenu">
-                        <li><a href="ui-buttons.html">Buttons</a></li>
-                        <li><a href="ui-cards.html">Cards</a></li>
-                        <li><a href="ui-cards-hover.html">Cards Hover</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-tabs.html">Tabs</a></li>
-                        <li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
-                        <li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
-                        <li><a href="ui-notification.html">Notification</a></li>
-                        <li><a href="ui-timeline.html">Timeline</a></li>
-                        <li><a href="ui-progressbar.html">Progressbar</a></li>
-                        <li><a href="ui-typography.html">Typography</a></li>
-                        <li><a href="ui-list-group.html">List group</a></li>
-                        <li><a href="ui-range-slider.html">Range slider</a></li>
-                        <li><a href="ui-carousel.html">Carousel</a></li>
-                    </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-paint-brush"></span><span class="mtext">Icons</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="font-awesome.html">FontAwesome Icons</a></li>
-                        <li><a href="foundation.html">Foundation Icons</a></li>
-                        <li><a href="ionicons.html">Ionicons Icons</a></li>
-                        <li><a href="themify.html">Themify Icons</a></li>
-                        <li><a href="custom-icon.html">Custom Icons</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-analytics-21"></span><span class="mtext">Charts</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="highchart.html">Highchart</a></li>
-                        <li><a href="knob-chart.html">jQuery Knob</a></li>
-                        <li><a href="jvectormap.html">jvectormap</a></li>
-                        <li><a href="apexcharts.html">Apexcharts</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-right-arrow1"></span><span class="mtext">Additional Pages</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="video-player.html">Video Player</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="forgot-password.html">Forgot Password</a></li>
-                        <li><a href="reset-password.html">Reset Password</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-browser2"></span><span class="mtext">Error Pages</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="400.html">400</a></li>
-                        <li><a href="403.html">403</a></li>
-                        <li><a href="404.html">404</a></li>
-                        <li><a href="500.html">500</a></li>
-                        <li><a href="503.html">503</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-copy"></span><span class="mtext">Extra Pages</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="blank.html">Blank</a></li>
-                        <li><a href="contact-directory.html">Contact Directory</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-detail.html">Blog Detail</a></li>
-                        <li><a href="product.html">Product</a></li>
-                        <li><a href="product-detail.html">Product Detail</a></li>
-                        <li><a href="assets/htmlpages/faq.html">FAQ</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="pricing-table.html">Pricing Tables</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-list3"></span><span class="mtext">Multi Level Menu</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="javascript:;">Level 1</a></li>
-                        <li><a href="javascript:;">Level 1</a></li>
-                        <li><a href="javascript:;">Level 1</a></li>
-                        <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle">
-                                <span class="micon fa fa-plug"></span><span class="mtext">Level 2</span>
-                            </a>
-                            <ul class="submenu child">
-                                <li><a href="javascript:;">Level 2</a></li>
-                                <li><a href="javascript:;">Level 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:;">Level 1</a></li>
-                        <li><a href="javascript:;">Level 1</a></li>
-                        <li><a href="javascript:;">Level 1</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="sitemap.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-diagram"></span><span class="mtext">Sitemap</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="chat.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-chat3"></span><span class="mtext">Chat</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="invoice.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-invoice"></span><span class="mtext">Invoice</span>
-                    </a>
-                </li>
-                <li>
-                    <div class="dropdown-divider"></div>
-                </li>
-                <li>
-                    <div class="sidebar-small-cap">Extra</div>
-                </li>
-                <li>
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="introduction.html">Introduction</a></li>
-                        <li><a href="getting-started.html">Getting Started</a></li>
-                        <li><a href="color-settings.html">Color Settings</a></li>
-                        <li><a href="third-party-plugins.html">Third Party Plugins</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-paper-plane1"></span>
-                        <span class="mtext">Landing Page <img src="assets/images/coming-soon.png" alt="" width="25"></span>
+                    <a [routerLink]="['/editexpression']" class="dropdown-toggle">
+                        <i class="micon dw dw-user1"></i><span class="mtext font-weight-bold">Edit Besoin</span>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <form (ngSubmit) = "logout()" style="position: absolute;bottom: 0;background-color: rgba(167, 42, 42, 0.764);width:100%;padding:10px;
+    text-align: center;color: #fff;font-weight: bold;">
+            <i class="dw dw-logout"></i>
+            <button type="submit" >Déconnexion</button>
+    </form>
+    
 </div>
 <div class="mobile-menu-overlay"></div>
 
@@ -406,7 +268,7 @@
                         <div class="widget-data text-white">
                             <!-- <div class="h4 mb-0 text-white">15</div>
                             <div class="weight-600 font-14">Etablissements</div> -->
-                            <div class="h4 mb-0 text-white" *ngIf="authMembre">{{authMembre.laboratoire.etablissement}}</div>
+                            <div class="h5 mb-0 text-white" *ngIf="authMembre">{{authMembre.laboratoire.etablissement?.nom}}</div>
                         </div>
                     </div>
                 </div>
@@ -419,7 +281,7 @@
                         </div>
                         <div class="widget-data text-white">
                             <!-- <div class="h4 mb-0 text-white">15</div> -->
-                            <div class="h4 mb-0 text-white" *ngIf="authMembre">{{authMembre.laboratoire.nomLabo}}</div>
+                            <div class="h5 mb-0 text-white" *ngIf="authMembre">{{authMembre.laboratoire.nomLabo}}</div>
                         </div>
                     </div>
                 </div>
@@ -433,7 +295,7 @@
                         <div class="widget-data text-white">
                             <!-- <div class="h4 mb-0 text-white">15</div>
                             <div class="weight-600 font-14">Membres</div> -->
-                            <div class="h4 mb-0 text-white" *ngIf="authMembre">{{authMembre.nom}}</div>
+                            <div class="h5 mb-0 text-white" *ngIf="authMembre">{{authMembre.nom}}</div>
                         </div>
                     </div>
                 </div>
@@ -454,7 +316,7 @@
         </div>
         
         <div class="card-box mb-30 position-relative">
-            <h2 class="h4 pd-20">Membres</h2>
+            <h2 class="h4 pd-20">Liste des ExpressionsBesoin</h2>
             
             <button type="button" 
                         class="btn btn-primary position-absolute" 
@@ -475,16 +337,16 @@
                             <div class="modal-body col-sm-12">
                                 <form>
                                     <div class="form-group">
-                                      <label for="nom">Nom</label>
-                                      <input type="text" class="form-control" id="nom" placeholder="Nom de membre">
+                                      <label for="montantApprox">montantApprox</label>
+                                      <input type="number" class="form-control" id="montantApprox" placeholder="1500">
                                     </div>
                                     <div class="form-group">
-                                        <label for="prenom">Prénom</label>
-                                        <input type="text" class="form-control" id="prenom" placeholder="Prénom de membre">
+                                        <label for="dateDem">dateDem</label>
+                                        <input type="text" class="form-control" id="dateDem" placeholder="2023-06-15">
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Adresse email">
+                                        <label for="DateEffet">DateEffet</label>
+                                        <input type="text" class="form-control" id="DateEffet" aria-describedby="emailHelp" placeholder="2023-06-15">
                                       </div>
                                     <div class="form-group">
                                         <label for="labo">Laboratoire</label>
@@ -502,48 +364,42 @@
                 <thead>
                     <tr>
                         <th class="table-plus datatable-nosort">#</th>
-                        <th>Nom & Prénom</th>
-                        <th>Email</th>
-                        <th>Laboratoire</th>
-                        <th>Profile</th>
+                        <th>MontantApprox</th>
+                        <th>DateDem</th>
+                        <th>DateEffet</th>
+                        <th>MontantEffet</th>
+                        <th>#Membre</th>
+                        <th>#Responsable</th>
                         <th class="datatable-nosort">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr  *ngFor="let membre of membres">
-                        <td class="table-plus">
-                            {{membre.id}}
-                        </td>
+                    <tr *ngFor="let expressionbesoin of expressionbesoins">
+                        <!-- <td class="table-plus"> -->
+                          <!-- Replace the static image with the actual etablissement image -->
+                          <!-- <img src="assets/images/product-1.jpg" width="70" height="70" alt="Imageaaa">
+                        </td> -->
+                        <td>{{ expressionbesoin.id }}</td>
+                        <td>{{ expressionbesoin.montantApprox }}</td>
+                        <td>{{ expressionbesoin.dateDem }}</td>
+                        <td>{{ expressionbesoin.dateEffet }}</td>
+                        <td>{{ expressionbesoin.montantEffet }}</td>
+                        <td>{{ expressionbesoin.membre?.nom }}</td>
+                        <td>{{ expressionbesoin.responsable?.nom }}</td>
                         <td>
-                            {{membre.nom}} {{membre.prenom}}
-                        </td>
-                        <td>{{membre.email}}</td>
-                        <td>
-                            <span *ngIf="membre.laboratoire!==null;else nullBlock">{{membre.laboratoire!.nomLabo}}</span>
-                            <ng-template #nullBlock>
-                                <span>--</span>
-                            </ng-template>
-                        </td>
-                        <td>
-                            <span *ngIf="!membre.director else dirBlock" style="background-color: rgba(73, 106, 225, 0.53);color: #fff;padding: 5px; ">Membre</span>
-                            <ng-template #dirBlock>
-                                <span style="background-color: rgba(225, 73, 73, 0.53);color: #fff;padding: 5px;">Directeur</span>
-                            </ng-template>
-                        </td>
-                        
-                        <td>
-                            <div class="dropdown">
-                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                    <i class="dw dw-more"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                    <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-                                </div>
+                          <div class="dropdown">
+                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button"
+                              data-toggle="dropdown">
+                              <i class="dw dw-more"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                              <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                              <a class="dropdown-item" (click)="editExpressionBesoins(expressionbesoin.id!)"><i class="dw dw-edit2"></i> Edit</a>
+                              <a class="dropdown-item" (click)="deleteExpressionBesoins(expressionbesoin.id!)"><i class="dw dw-delete-3"></i> Delete</a>
                             </div>
+                          </div>
                         </td>
-                    </tr> -->
+                      </tr>
                 </tbody>
             </table>
         </div>

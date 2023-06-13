@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IExpressionBesoin } from 'src/app/models/IExpressionBesoin';
 import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/expression-besoins.service';
+import { AuthService } from 'src/app/services/Auth/auth.service';
+import { IMembre } from 'src/app/models/IMembre';
+import { MembreService } from 'src/app/services/membre/membre.service';
+
 
 @Component({
   selector: 'app-editexpression',
@@ -11,11 +15,17 @@ import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/exp
 export class EditexpressionComponent {
 
   expressionbesoin!: IExpressionBesoin;
+  authMembre!: IMembre;
+
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private expressionService: ExpressionBesoinsService
+    private expressionService: ExpressionBesoinsService,
+    private authService: AuthService,
+    private membreService: MembreService
+
+
   ) { }
 
   ngOnInit() {
@@ -31,6 +41,8 @@ export class EditexpressionComponent {
         }
       );
     }
+    this.getAuthMembre();
+
   }
 
   loadExpression(expressionId: number) {
@@ -61,6 +73,22 @@ export class EditexpressionComponent {
       },
       error => console.log(error)
     );
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  getAuthMembre(){
+   
+    this.membreService.getMembreById(Number(localStorage.getItem('authId')?.split("+")[1])).subscribe(
+      response => {
+        this.authMembre = response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }
