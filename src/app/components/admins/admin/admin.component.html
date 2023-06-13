@@ -238,6 +238,12 @@
 							<i class="micon dw dw-user1"></i><span class="mtext font-weight-bold">Membres</span>
 						</a>
 					</li>
+
+					<li class="dropdown">
+						<a [routerLink]="['/admin/dashboard/dotations']" class="dropdown-toggle">
+							<i class="micon dw dw-user1"></i><span class="mtext font-weight-bold">Dotations</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -579,7 +585,7 @@
 						<h2 class="h4 mb-20">Uca Recherche</h2>
 						<a [routerLink]="['/admin/dashboard/dotations']"
 							class="position-absolute" 
-							style="font-weight: bold; right: 20px;top: 20px;color: rgb(42, 29, 68);">Voir plus >></a>
+							style="font-size: 14px;font-weight: 600; right: 20px;top: 20px;color: rgb(42, 29, 68);">Voir plus >></a>
 						  
 						<table class="data-table table nowrap">
 							<thead>
@@ -587,7 +593,6 @@
 									<th class="font-weight-bold">Année</th>
 									<th class="font-weight-bold">Membre</th>
 									<th class="font-weight-bold">Dotation</th>
-									<th class="datatable-nosort font-weight-bold">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -597,22 +602,6 @@
 										{{membreDotations.nom}} {{membreDotations.prenom}}
 									</td>
 									<td>{{dotation.dotationMembre}}</td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a role="button" class="dropdown-item" href="#"
-													
-													data-toggle="modal" 
-													data-target="#eDetailsModal">
-													<i class="dw dw-eye"></i>View
-												</a>
-												<a class="dropdown-item"><i class="dw dw-delete-3"></i> Delete</a>
-											</div>
-										</div>
-									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -622,7 +611,9 @@
 				<div class="col-xl-6 mb-30">
 					<div class="card-box height-100-p pd-20 position-relative">
 						<h2 class="h4 mb-20">Expressions Validés</h2>
-						  
+						<a [routerLink]="['/admin/dashboard/besoins']"
+						class="position-absolute" 
+						style="font-size: 14px;font-weight: 600; right: 20px;top: 20px;color: rgb(42, 29, 68);">Voir plus >></a>
 						<table class="data-table table nowrap">
 							<thead>
 								<tr>
@@ -636,15 +627,15 @@
 							</thead>
 							<tbody>
 								<tr *ngFor="let e of expressions" >
-									<ng-container *ngIf="e && e.isValid==true">
+									
 										<td *ngIf="e.typeBesoin">
 											{{e.typeBesoin.type}}
 										</td>
 										<td *ngIf="e.membre">{{e.membre.nom}} {{e.membre.prenom}}</td>
 										<td *ngIf="e.responsable">{{e.responsable.nom}} {{e.responsable.prenom}}</td>
 										<td>{{e.montantEffet}}</td>
-										<td><span class="badge badge-success">{{e.isValid}}</span></td>
-									</ng-container>
+										<td><span class="badge badge-success">V</span></td>
+									
 								</tr>
 							</tbody>
 						</table>

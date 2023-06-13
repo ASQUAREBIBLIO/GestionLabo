@@ -36,8 +36,12 @@ export class ExpressionBesoinsService {
     return this.http.delete<void>(`${this.expressionUrl}/${id}`);
   }
 
+
   getValidExpressionBesoinsByType(): Observable<IExpressionBesoin[]> {
     const type = 'marche';
     return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/${type}`);
 }
+  getValidExpression(): Observable<IExpressionBesoin[]> {
+    return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/v`);
+  }
 }
