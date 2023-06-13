@@ -2,8 +2,7 @@ import { IMembre } from "./IMembre";
 
 export interface IUcaRech{
     id: number;
-    annee: Date;
+    annee: string;
     source: string;
     budget: number;
-    membres?: IMembre[];
 }
