@@ -631,16 +631,19 @@
 									<th class="font-weight-bold">Membre</th>
 									<th class="font-weight-bold">Responsable</th>
 									<th class="datatable-nosort font-weight-bold">Montant</th>
+									<th class="datatable-nosort font-weight-bold">Validation</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr *ngFor="let e of expressions">
+								<tr *ngFor="let e of expressions" >
 									
-									<td>
+									<td *ngIf="e.typeBesoin">
 										{{e.typeBesoin.type}}
 									</td>
-									<td *ngIf="e.membre">{{e.membre.nom}}</td>
-									<td *ngIf="e.responsable">{{e.responsable.nom}}</td>
+									<td *ngIf="e.membre">{{e.membre.nom}} {{e.membre.prenom}}</td>
+									<td *ngIf="e.responsable">{{e.responsable.nom}} {{e.responsable.prenom}}</td>
+									<td>{{e.montantEffet}}</td>
+									<td><span class="badge badge-success">V</span></td>
 								</tr>
 							</tbody>
 						</table>
