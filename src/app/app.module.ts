@@ -25,7 +25,8 @@ import { AdminGuardService } from './services/adminGuard/admin-guard.service';
 import { MembreGuardService } from './services/membreGuard/membre-guard.service';
 import { DirectorGuardService } from './services/direcorGuard/director-guard.service';
 import { DirectorsModule } from './components/directors/directors.module';
-import { DashboardmarcheComponent } from './components/dashboardmarche/dashboardmarche.component';
+import { DashboardmarcheComponent } from './components/dashboardrespomarche/dashboardmarche/dashboardmarche.component';
+import { DashboardrespomarcheModule } from './components/dashboardrespomarche/dashboardrespomarche.module';
 
 
 
@@ -51,7 +52,8 @@ import { DashboardmarcheComponent } from './components/dashboardmarche/dashboard
     AdminsModule,
     DashboardmembreModule,
     DirectorsModule,
-    FormsModule
+    FormsModule,
+    DashboardrespomarcheModule
   ],
   providers: [
     MembreService,
