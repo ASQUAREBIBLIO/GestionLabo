@@ -5,9 +5,9 @@ import { ITypeBesoin } from "./ITypeBesoin";
 export interface IExpressionBesoin{
     id?: number;
     montantApprox: number;
-    dateDem: Date;
-    dateEffet: Date;
-    montantEffet: Date;
+    dateDem: string;
+    dateEffet: string;
+    montantEffet: number;
     isValid: boolean;
     // membre?: {
     //     id: number;
@@ -20,5 +20,8 @@ export interface IExpressionBesoin{
         nom: string;
         prenom: string;
     };
-    type?: ITypeBesoin;
+    type: {
+        id?: number;
+        type?: string;
+    };
 }

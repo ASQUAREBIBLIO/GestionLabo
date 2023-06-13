@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/Auth/auth.service';
 import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/expression-besoins.service';
 import { TypeBesoinService } from 'src/app/services/typebesoin/type-besoin.service';
 import { MembreService } from 'src/app/services/membre/membre.service';
+import { formatDate } from '@angular/common';
 
 
 
@@ -27,9 +28,9 @@ export class AddexpressionComponent implements OnInit{
 
   expressionBesoin: IExpressionBesoin = {
     montantApprox: 0,
-    dateDem: new Date(),
-    dateEffet: new Date(),
-    montantEffet: new Date(),
+    dateDem: formatDate(new Date(), 'yyyy-MM-dd', 'en-US'),
+    dateEffet: formatDate(new Date(), 'yyyy-MM-dd', 'en-US'),
+    montantEffet: 0,
     isValid: false,
     membre: {
       id: 0,

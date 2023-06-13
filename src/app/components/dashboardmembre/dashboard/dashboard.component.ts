@@ -5,6 +5,7 @@ import { MembreService } from 'src/app/services/membre/membre.service';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 import { IExpressionBesoin } from 'src/app/models/IExpressionBesoin';
 import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/expression-besoins.service';
+import { formatDate } from '@angular/common';
 
 
 
@@ -21,9 +22,9 @@ export class DashboardComponent {
 
   expressionBesoin: IExpressionBesoin = {
     montantApprox: 0,
-    dateDem: new Date(),
-    dateEffet: new Date(),
-    montantEffet: new Date(),
+    dateDem: formatDate(new Date(), 'yyyy-MM-dd', 'en-US'),
+    dateEffet: '',
+    montantEffet: 0,
     isValid: false,
     membre: {
       id: 0,
@@ -46,13 +47,8 @@ export class DashboardComponent {
       projets: [],
       expressionBesoins: []
     },
-    responsable: {
-      id: 1,
-      nom: '',
-      prenom: ''
-    },
     type: {
-      id: 1,
+      id: undefined,
       type: ''
     }
   };
