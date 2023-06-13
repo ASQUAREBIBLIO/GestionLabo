@@ -19,8 +19,7 @@ export class AddetablissementComponent {
       nom: '',
       prenom: '',
       email: '',
-      password: '',
-      role: null
+      password: ''
     }
   };
 

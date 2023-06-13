@@ -7,5 +7,9 @@ export interface ILaboratoire{
         id?: number;
         nom?: string;
     }
-    membres?: IMembre[];
+    membres?: [
+        {
+            id: number;
+        }
+    ]
 }

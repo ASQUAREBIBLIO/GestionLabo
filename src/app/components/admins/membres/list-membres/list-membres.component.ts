@@ -19,7 +19,7 @@ export class ListMembresComponent {
   laboratoires!: ILaboratoire[];
   SelectedMembre!: IMembre;
 
-  expressionLength: number = 0;
+  totalExpression: any;
 
     constructor(private membreService: MembreService,
       private laboratoireService: LaboratoireService,
@@ -33,7 +33,6 @@ export class ListMembresComponent {
     getMembres() {
       this.membreService.getAllMembres().subscribe(
         response => {
-          response.map(res => {this.expressionLength = res.expressionBesoins.length;})
           this.membres = response;
         },
         error => {
@@ -63,10 +62,6 @@ export class ListMembresComponent {
 
     OpenMembreDetailsModal(membre: IMembre){
       this.SelectedMembre = membre;
-    //   this.membreService.getSumExpressions(this.SelectedMembre.id!).subscribe(
-    //     res => {
-    //       this.expressionLength = res;
-    //     })
     }
 
     createMembre(membre: IMembre) {
@@ -83,17 +78,7 @@ export class ListMembresComponent {
     editMembre(membreId: number) {
       this.router.navigate(['/admin/dashboard/membres/edit', membreId]);
     }
-  
-    // updateMembre(membreId: number, membre: IMembre) {
-    //   this.membreService.updateMembre(membreId, membre).subscribe(
-    //     response => {
-    //       console.log('Etablissement updated successfully.');
-    //       // Refresh projets list
-    //       this.getMembres();
-    //     },
-    //     error => console.log(error)
-    //   );
-    // }
+
 
     deleteMembre(id: number) {
       if (confirm('Are you sure you want to delete this membre?')) {
@@ -106,5 +91,18 @@ export class ListMembresComponent {
           }
         );
       }
+    }
+
+    getTotalExpression() {
+      this.membreService.getSumExpressions(this.SelectedMembre.id!)
+        .subscribe(
+          response => {
+            this.totalExpression = response;
+            // Handle the received data as needed
+          },
+          error => {
+            console.error('Error fetching total expression:', error);
+          }
+        );
     }
 }

@@ -489,7 +489,7 @@
 								</div>
 								<div class="modal-body col-sm-12">
 									<form (ngSubmit)="createMembre(membreForm)" #membreForm="ngForm" novalidate>
-										<input *ngIf="authAdmin" type="hidden" name="admin" [(ngModel)] ="authAdmin.id" >
+										<input *ngIf="authAdmin" type="text" name="admin" [(ngModel)] ="authAdmin.id" >
 										<div class="form-group">
 										  <label for="nom">Nom</label>
 										  <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de membre"

@@ -38,7 +38,7 @@ export class MembreService {
   }
 
   getSumExpressions(id: number): Observable<any> {
-    return this.http.get(`${this.membresUrl}/${id}/e/total`);
+    return this.http.get<any>(`${this.membresUrl}/${id}/e/total`);
   }
 
 }

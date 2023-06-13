@@ -21,5 +21,5 @@ export interface IMembre{
         id?: number;
     };
     projets?: IProjet[];
-    expressionBesoins: IExpressionBesoin[];
+    expressionBesoins?: IExpressionBesoin[];
 }
