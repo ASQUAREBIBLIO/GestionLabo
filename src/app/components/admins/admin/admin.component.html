@@ -636,14 +636,15 @@
 							</thead>
 							<tbody>
 								<tr *ngFor="let e of expressions" >
-									
-									<td *ngIf="e.typeBesoin">
-										{{e.typeBesoin.type}}
-									</td>
-									<td *ngIf="e.membre">{{e.membre.nom}} {{e.membre.prenom}}</td>
-									<td *ngIf="e.responsable">{{e.responsable.nom}} {{e.responsable.prenom}}</td>
-									<td>{{e.montantEffet}}</td>
-									<td><span class="badge badge-success">V</span></td>
+									<ng-container *ngIf="e && e.isValid==true">
+										<td *ngIf="e.typeBesoin">
+											{{e.typeBesoin.type}}
+										</td>
+										<td *ngIf="e.membre">{{e.membre.nom}} {{e.membre.prenom}}</td>
+										<td *ngIf="e.responsable">{{e.responsable.nom}} {{e.responsable.prenom}}</td>
+										<td>{{e.montantEffet}}</td>
+										<td><span class="badge badge-success">{{e.isValid}}</span></td>
+									</ng-container>
 								</tr>
 							</tbody>
 						</table>

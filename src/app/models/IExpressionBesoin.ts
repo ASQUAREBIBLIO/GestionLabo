@@ -18,7 +18,7 @@ export interface IExpressionBesoin{
         prenom: string;
     },
     responsable?: {
-        id: number;
+        id?: number;
         nom: string;
         prenom: string;
     };
