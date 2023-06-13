@@ -8,7 +8,7 @@ import { EditlaboComponent } from './laboratoires/editlabo/editlabo.component';
 import { AdminGuardService } from 'src/app/services/adminGuard/admin-guard.service';
 
 const routes: Routes = [
-  {path: 'admin/dashboard', component: AdminComponent, canActivate: [AdminGuardService]},
+{path: 'admin/dashboard', component: AdminComponent /*, canActivate: [AdminGuardService]*/},
   {path: 'admin/dashboard/membres', component: ListMembresComponent},
   {path: 'admin/dashboard/laboratoires', component: ListlaboComponent},
   {path: 'admin/dashboard/e/edit/:id', component: EditetablissementComponent},

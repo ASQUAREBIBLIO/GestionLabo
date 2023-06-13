@@ -19,6 +19,8 @@ export class ListMembresComponent {
   laboratoires!: ILaboratoire[];
   SelectedMembre!: IMembre;
 
+  expressionLength: number | undefined;
+
     constructor(private membreService: MembreService,
       private laboratoireService: LaboratoireService,
       private router: Router) { }
@@ -42,7 +44,7 @@ export class ListMembresComponent {
     setMembreAsDirector(membreId: number) {
       this.membreService.setMembreAsDirector(membreId, true).subscribe(
         response => {
-  
+          
         }
       )
     }
@@ -60,6 +62,7 @@ export class ListMembresComponent {
 
     OpenMembreDetailsModal(membre: IMembre){
       this.SelectedMembre = membre;
+      this.expressionLength = this.SelectedMembre.expressionBesoins?.length;
     }
 
     createMembre(membre: IMembre) {

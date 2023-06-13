@@ -23,7 +23,7 @@ export class DashboardComponent {
 
   getAuthMembre(){
    
-    this.membreService.getMembreById(Number(localStorage.getItem('authId'))).subscribe(
+    this.membreService.getMembreById(Number(localStorage.getItem('authId')?.split("+")[1])).subscribe(
       response => {
         this.authMembre = response;
       },
