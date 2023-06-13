@@ -363,42 +363,42 @@
                         </div>
                       </div>
             
-            <table class="data-table table nowrap">
-                <thead>
-                    <tr>
-                        <th>MontantApprox</th>
-                        <th>DateDem</th>
-                        <th>DateEffet</th>
-                        <th>MontantEffet</th>
-                        <th>#Membre</th>
-                        <!-- <th>#Responsable</th> -->
-                        <th class="datatable-nosort">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let expressionbesoin of expressionbesoins">
-                        <td>{{ expressionbesoin.montantApprox }}</td>
-                        <td>{{ expressionbesoin.dateDem }}</td>
-                        <td>{{ expressionbesoin.dateEffet }}</td>
-                        <td>{{ expressionbesoin.montantEffet }}</td>
-                        <td>{{ expressionbesoin.membre.nom }}</td>
-                        <!-- <td>{{ expressionbesoin.responsable?.nom }}</td> -->
-                        <td>
-                          <div class="dropdown">
-                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button"
-                              data-toggle="dropdown">
-                              <i class="dw dw-more"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                              <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                              <a class="dropdown-item" (click)="editExpressionBesoins(expressionbesoin.id!)"><i class="dw dw-edit2"></i> Edit</a>
-                              <a class="dropdown-item" (click)="deleteExpressionBesoins(expressionbesoin.id!)"><i class="dw dw-delete-3"></i> Delete</a>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                </tbody>
-            </table>
+                      <table class="data-table table nowrap">
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>MontantApprox</th>
+                            <th>DateDem</th>
+                            <th>DateEffet</th>
+                            <th>MontantEffet</th>
+                            <th>#Membre</th>
+                            <th class="datatable-nosort">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let expressionbesoin of expressionbesoins">
+                            <td>{{expressionbesoin.id}}</td>
+                            <td>{{ expressionbesoin.montantApprox }}</td>
+                            <td>{{ expressionbesoin.dateDem }}</td>
+                            <td>{{ expressionbesoin.dateEffet }}</td>
+                            <td>{{ expressionbesoin.montantEffet }}</td>
+                            <td>{{ expressionbesoin.membre.nom }}</td>
+                            <td>
+                              <div class="dropdown">
+                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button"
+                                  data-toggle="dropdown">
+                                  <i class="dw dw-more"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                  <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                                  <a class="dropdown-item" (click)="editExpressionBesoins(expressionbesoin.id!)"><i class="dw dw-edit2"></i> Edit</a>
+                                  <a class="dropdown-item" (click)="deleteExpressionBesoins(expressionbesoin.id!)"><i class="dw dw-delete-3"></i> Delete</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
         </div>
         <div class="footer-wrap pd-20 mb-20 card-box">
             Dashboard Sponsored By <a href="#" target="_blank">DIMA KOKAB</a>

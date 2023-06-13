@@ -66,7 +66,7 @@ export class DashboardmarcheComponent {
   }
 
   loadExpressions() {
-    this.expressionBesoinsService.getAllExpressionBesoins().subscribe(
+    this.expressionBesoinsService.getValidExpressionBesoinsByType().subscribe(
       expressionbesoins => this.expressionbesoins = expressionbesoins,
       error => console.log(error)
     );
@@ -110,6 +110,5 @@ export class DashboardmarcheComponent {
       // Handle the case when the member ID is not a valid number
     }
   }
-
 
 }

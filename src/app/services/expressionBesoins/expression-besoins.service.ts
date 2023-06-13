@@ -35,4 +35,9 @@ export class ExpressionBesoinsService {
   deleteExpressionBesoins(id: number): Observable<void> {
     return this.http.delete<void>(`${this.expressionUrl}/${id}`);
   }
+
+  getValidExpressionBesoinsByType(): Observable<IExpressionBesoin[]> {
+    const type = 'marche';
+    return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/${type}`);
+}
 }
