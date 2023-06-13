@@ -572,12 +572,89 @@
 					</tbody>
 				</table>
 			</div>
+
+			<div class="row">
+				<div class="col-xl-6 mb-30">
+					<div class="card-box height-100-p pd-20 position-relative">
+						<h2 class="h4 mb-20">Uca Recherche</h2>
+						<a [routerLink]="['/admin/dashboard/dotations']"
+							class="position-absolute" 
+							style="font-weight: bold; right: 20px;top: 20px;color: rgb(42, 29, 68);">Voir plus >></a>
+						  
+						<table class="data-table table nowrap">
+							<thead>
+								<tr>
+									<th class="font-weight-bold">Année</th>
+									<th class="font-weight-bold">Membre</th>
+									<th class="font-weight-bold">Dotation</th>
+									<th class="datatable-nosort font-weight-bold">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let dotation of dotations">
+									<td *ngIf="ucaRechDotation">{{ucaRechDotation.annee}}</td>
+									<td *ngIf="membreDotations">
+										{{membreDotations.nom}} {{membreDotations.prenom}}
+									</td>
+									<td>{{dotation.dotationMembre}}</td>
+									<td>
+										<div class="dropdown">
+											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+												<i class="dw dw-more"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+												<a role="button" class="dropdown-item" href="#"
+													
+													data-toggle="modal" 
+													data-target="#eDetailsModal">
+													<i class="dw dw-eye"></i>View
+												</a>
+												<a class="dropdown-item"><i class="dw dw-delete-3"></i> Delete</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="col-xl-6 mb-30">
+					<div class="card-box height-100-p pd-20 position-relative">
+						<h2 class="h4 mb-20">Expressions Validés</h2>
+						  
+						<table class="data-table table nowrap">
+							<thead>
+								<tr>
+									
+									<th class="font-weight-bold">Besoin</th>
+									<th class="font-weight-bold">Membre</th>
+									<th class="font-weight-bold">Responsable</th>
+									<th class="datatable-nosort font-weight-bold">Montant</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let e of expressions">
+									
+									<td>
+										{{e.typeBesoin.type}}
+									</td>
+									<td *ngIf="e.membre">{{e.membre.nom}}</td>
+									<td *ngIf="e.responsable">{{e.responsable.nom}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
 			<div class="footer-wrap pd-20 mb-20 card-box">
 				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
 			</div>
 		</div>
 	</div>
-	<!-- js -->
+
+	<!-- js
 	<script src="../../../vendors/scripts/core.js"></script>
 	<script src="../../../vendors/scripts/script.min.js"></script>
 	<script src="../../../vendors/scripts/process.js"></script>
@@ -587,7 +664,7 @@
 	<script src="../../../srctemplate/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 	<script src="../../../srctemplate/plugins/datatables/js/dataTables.responsive.min.js"></script>
 	<script src="../../../srctemplate/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-	<script src="../../../vendors/scripts/dashboard.js"></script>
+	<script src="../../../vendors/scripts/dashboard.js"></script> -->
 
 
 	<!-- Modal Etablissement Details-->

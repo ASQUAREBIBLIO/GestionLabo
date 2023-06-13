@@ -2,14 +2,20 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAdmin } from 'src/app/models/IAdmin';
+import { IDotation } from 'src/app/models/IDotation';
 import {IEtablissement} from 'src/app/models/IEtablissement'
+import { IExpressionBesoin } from 'src/app/models/IExpressionBesoin';
 import { ILaboratoire } from 'src/app/models/ILaboratoire';
 import { IMembre } from 'src/app/models/IMembre';
+import { IUcaRech } from 'src/app/models/IUcaRech';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import { DotationService } from 'src/app/services/dotations/dotation.service';
 import { EtablissementService } from 'src/app/services/etablissement/etablissement.service';
+import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/expression-besoins.service';
 import { LaboratoireService } from 'src/app/services/laboratoire/laboratoire.service';
 import { MembreService } from 'src/app/services/membre/membre.service';
+import { UcaRechService } from 'src/app/services/ucaRech/uca-rech.service';
 
 
 @Component({
@@ -24,6 +30,10 @@ export class AdminComponent {
   etablissements: IEtablissement[] = [];
   membres: IMembre[] = [];
   laboratoires: ILaboratoire[] = [];
+  expressions: IExpressionBesoin[] = [];
+  dotations: IDotation[] = [];
+  membreDotations!: IMembre;
+  ucaRechDotation!: IUcaRech;
 
   slicedResults: any[] = [];
   membresLength: number = 0;
@@ -75,6 +85,9 @@ export class AdminComponent {
     private etablissementService: EtablissementService,
     private membreService: MembreService,
     private laboratoireService: LaboratoireService,
+    private expressionBesoinService: ExpressionBesoinsService,
+    private dotationService: DotationService,
+    private ucaRechService: UcaRechService,
     private authService: AuthService,
     private router: Router
   ) { }
@@ -85,6 +98,28 @@ export class AdminComponent {
     this.getMembres();
     this.getLaboratoires();
     this.getAuthAdmin();
+    this.getDotationsMembres();
+    this.getValidExpressions();
+  }
+
+  getValidExpressions() {
+    this.expressionBesoinService.getAllExpressionBesoins().subscribe(
+      response => {
+        this.expressions = response;
+      }
+    )
+  }
+
+  getDotationsMembres() {
+    this.dotationService.getAllDotationsUcaRech().subscribe(
+      response => {
+        this.dotations = response;
+        this.dotations.forEach(dotation => {
+          this.membreService.getMembreById(dotation.id.membreId).subscribe(m => this.membreDotations = m);
+          this.ucaRechService.getUcaRechById(dotation.id.ucaRechId).subscribe(uca => this.ucaRechDotation = uca);
+        })
+      }
+    )
   }
 
   getMembres() {

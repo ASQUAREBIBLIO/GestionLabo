@@ -35,30 +35,14 @@ export class AddexpressionComponent implements OnInit{
     membre: {
       id: 0,
       nom: '',
-      prenom: '',
-      email: '',
-      password: '',
-      director: false,
-      laboratoire: {
-        id: 0,
-        nomLabo: '',
-        etablissement: {
-          id: 0,
-          nom: ''
-        }
-      },
-      admin: {
-        id: 0
-      },
-      projets: [],
-      expressionBesoins: []
+      prenom: ''
     },
     responsable: {
       id: 1,
       nom: '',
       prenom: ''
     },
-    type: {
+    typeBesoin: {
       id: 1,
       type: ''
     }

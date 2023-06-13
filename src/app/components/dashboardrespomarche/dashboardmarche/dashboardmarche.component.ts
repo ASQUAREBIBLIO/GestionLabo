@@ -27,24 +27,8 @@ export class DashboardmarcheComponent {
       id: 0,
       nom: '',
       prenom: '',
-      email: '',
-      password: '',
-      director: false,
-      laboratoire: {
-        id: 0,
-        nomLabo: '',
-        etablissement: {
-          id: 0,
-          nom: ''
-        }
-      },
-      admin: {
-        id: 0
-      },
-      projets: [],
-      expressionBesoins: []
     },
-    type: {
+    typeBesoin: {
       id: undefined,
       type: ''
     }

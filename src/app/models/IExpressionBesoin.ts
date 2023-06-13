@@ -1,6 +1,4 @@
 import { IMembre } from "./IMembre";
-import { IResponsable } from "./IResponsable";
-import { ITypeBesoin } from "./ITypeBesoin";
 
 export interface IExpressionBesoin{
     id?: number;
@@ -14,13 +12,17 @@ export interface IExpressionBesoin{
     //     nom: string;
     //     prenom: string;
     // };
-    membre?: IMembre;
+    membre: {
+        id?: number;
+        nom: string;
+        prenom: string;
+    },
     responsable?: {
         id: number;
         nom: string;
         prenom: string;
     };
-    type: {
+    typeBesoin: {
         id?: number;
         type?: string;
     };
