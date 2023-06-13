@@ -10,6 +10,7 @@ import { ExpressionsbesoinModule } from './expressionsbesoin/expressionsbesoin.m
 import { ProjetsModule } from './projets/projets.module';
 import { ResponsablesModule } from './responsables/responsables.module';
 import { FormsModule } from '@angular/forms';
+import { DotationsModule } from './dotations/dotations.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     ProjetsModule,
     ResponsablesModule,
     FormsModule,
+    DotationsModule
 
   ]
 })
