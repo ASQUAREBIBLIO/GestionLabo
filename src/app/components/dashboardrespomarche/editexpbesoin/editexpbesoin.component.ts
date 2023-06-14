@@ -76,28 +76,29 @@ export class EditexpbesoinComponent {
   // }
 
   updateExpressionBesoins() {
-    const memberId = Number(localStorage.getItem('authId')?.split("+")[1]);
+    // const memberId = Number(localStorage.getItem('authId')?.split("+")[1]);
   
-    if (!isNaN(memberId)) {
-      this.membreService.getMembreById(memberId).subscribe(
-        response => {
-          this.expressionbesoin.membre = response;
+    // if (!isNaN(memberId)) {
+    //   this.membreService.getMembreById(memberId).subscribe(
+    //     response => {
+    //       this.expressionbesoin.membre = response;
   
-          this.expressionService.updateExpressionBesoins(this.expressionbesoin).subscribe(
-            response => {
-              console.log('Needs expression updated successfully.');
-              this.router.navigate(['/respomarche/dashboard']);
-              // Additional logic if needed
-            },
-            error => console.log(error)
-          );
-        },
-        error => console.log(error)
-      );
-    } else {
-      console.log('Invalid member ID.');
-      // Handle the case when the member ID is not a valid number
-    }
+          
+    //     },
+    //     error => console.log(error)
+    //   );
+    // } else {
+    //   console.log('Invalid member ID.');
+    //   // Handle the case when the member ID is not a valid number
+    // }
+    this.expressionService.updateExpressionBesoins(this.expressionbesoin).subscribe(
+      response => {
+        console.log('Needs expression updated successfully.');
+        this.router.navigate(['/respomarche/dashboard']);
+        // Additional logic if needed
+      },
+      error => console.log(error)
+    );
   }
 
   logout() {

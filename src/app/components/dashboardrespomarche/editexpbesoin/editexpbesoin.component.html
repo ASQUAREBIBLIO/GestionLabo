@@ -261,10 +261,10 @@
             </div>
         
         </div>
-        <form #editForm="ngForm" novalidate>
+        <form #editForm="ngForm" *ngIf="expressionbesoin" novalidate>
             <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">MontantApprox</label>
-                <div class="col-sm-12 col-md-10">
+                <div class="col-sm-12 col-md-10" >
                     <input type="number" class="form-control" id="montantApprox" name="montantApprox" placeholder="1500" [(ngModel)]="expressionbesoin.montantApprox" required>
                 </div>
             </div>
@@ -292,3 +292,4 @@
     
         </form>
     </div>
+</div>
