@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'admin/dashboard/membres', component: ListMembresComponent},
   {path: 'admin/dashboard/laboratoires', component: ListlaboComponent},
   {path: 'admin/dashboard/e/edit/:id', component: EditetablissementComponent},
-  {path: 'admin/dashboard/lab/:id', component: EditlaboComponent}
-  
+  {path: 'admin/dashboard/lab/:id', component: EditlaboComponent},
+  {path: 'admin/dashboard/dotations', component: UcaRechComponent}
 
 ];
 
