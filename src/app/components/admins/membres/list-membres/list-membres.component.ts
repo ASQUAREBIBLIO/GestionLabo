@@ -44,7 +44,8 @@ export class ListMembresComponent {
     setMembreAsDirector(membreId: number) {
       this.membreService.setMembreAsDirector(membreId, true).subscribe(
         response => {
-          
+          alert("succès !");
+          this.getMembres();
         }
       )
     }
@@ -84,6 +85,7 @@ export class ListMembresComponent {
       if (confirm('Are you sure you want to delete this membre?')) {
         this.membreService.deleteMembre(id).subscribe(
           () => {
+            alert("Supprimé avec succès !")
             this.getMembres();
           },
           error => {

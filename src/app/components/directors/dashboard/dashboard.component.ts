@@ -48,7 +48,17 @@ export class DashboardComponent {
     this.expressionBesoinService.getInvalidExpression().subscribe(
       response => {
         this.lengthInv = response.length;
-        this.expressionInv = response.slice(0, 15).sort((a, b) => { return b.id! - a.id!});;
+        this.expressionInv = response.slice(0, 15).sort((a, b) => { return b.id! - a.id!});
+      }
+    )
+  }
+
+  valider(id: number) {
+    this.expressionBesoinService.validerExpression(id).subscribe(
+      response => {
+        alert(response.typeBesoin.type + " est validé !");
+       this.getInvalidExpressions();
+       this.getValidExpressions();
       }
     )
   }

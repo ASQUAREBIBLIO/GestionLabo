@@ -54,4 +54,8 @@ export class ExpressionBesoinsService {
   getInvalidExpression(): Observable<IExpressionBesoin[]> {
     return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/inv`);
   }
+
+  validerExpression(id: number): Observable<IExpressionBesoin> {
+    return this.http.get<IExpressionBesoin>(`${this.expressionUrl}/${id}/v`);
+  }
 }

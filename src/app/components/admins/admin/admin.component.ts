@@ -146,9 +146,7 @@ export class AdminComponent {
   createMembre(membreForm: NgForm) {
     this.membreService.createMembre(this.membre).subscribe(
       response => {
-        console.log('Etablissement created successfully.');
-        membreForm.reset();
-        // Reload the page
+        alert("Nouveau membre est enregistré avec succès !")
         window.location.reload();
       },
       error => console.log(error)
@@ -172,7 +170,7 @@ export class AdminComponent {
     if (confirm('Are you sure you want to delete this membre?')) {
       this.membreService.deleteMembre(id).subscribe(
         () => {
-          window.location.reload();
+          alert("Supprimé avec succès !")
           this.getMembres();
         },
         error => {
@@ -185,9 +183,7 @@ export class AdminComponent {
   createLaboratoire(laboratoireForm: NgForm) {
     this.laboratoireService.createLaboratoire(this.laboratoire).subscribe(
       response => {
-        console.log('Etablissement created successfully.');
-        laboratoireForm.reset();
-        // Reload the page
+        alert("Nouveau laboratoire est créé avec succès !");
         window.location.reload();
       },
       error => console.log(error)
@@ -224,7 +220,7 @@ export class AdminComponent {
     if (confirm('Are you sure you want to delete this laboratory?')) {
       this.laboratoireService.deleteLaboratoire(id).subscribe(
         () => {
-          window.location.reload();
+          alert("Supprimé avec succès !")
           this.getLaboratoires();
         },
         error => {
@@ -265,9 +261,7 @@ export class AdminComponent {
   createEtablissement(etabForm: NgForm) {
     this.etablissementService.createEtablissement(this.etablissement).subscribe(
       response => {
-        console.log('Etablissement created successfully.');
-        etabForm.reset();
-        // Reload the page
+        alert("Nouvelle établissement est ajoutée avec succès !");
         window.location.reload();
       },
       error => console.log(error)
@@ -293,9 +287,7 @@ export class AdminComponent {
     if (confirm('Are you sure you want to delete this Etablissement?')) {
       this.etablissementService.deleteEtablissement(etablissementId).subscribe(
         response => {
-          console.log('Etablissement deleted successfully.');
-          // Additional logic if needed
-          window.location.reload();
+          alert("Supprimé avec succès !")
           this.getEtablissements();
         },
         error => console.log(error)

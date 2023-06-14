@@ -327,8 +327,8 @@
                                     role="button" data-toggle="dropdown">
                                     <i class="dw dw-more"></i>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                    <a class="dropdown-item"><i class="dw dw-edit2"></i> V</a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list" *ngIf="e.id">
+                                    <a class="dropdown-item" (click)="valider(e.id)"><i class="dw dw-edit2"></i> V</a>
                                     <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i>NV</a>
                                 </div>
                             </div>

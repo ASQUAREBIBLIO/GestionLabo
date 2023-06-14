@@ -418,7 +418,7 @@
                                     </a>
                                     <a class="dropdown-item" (click)="editMembre(membre.id!)"><i
                                             class="dw dw-edit2"></i> Edit</a>
-                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                                    <a class="dropdown-item" (click)="deleteMembre(membre.id!)"><i class="dw dw-delete-3"></i> Delete</a>
                                 </div>
                             </div>
                         </td>
@@ -444,65 +444,33 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h6>{{SelectedMembre.nom}} {{SelectedMembre.prenom}}
+                <h5>Informations personnelles</h5>
+                <div class="column mb-2">
+                    <strong>{{SelectedMembre.nom}} {{SelectedMembre.prenom}}
 
-                    <span *ngIf="!SelectedMembre.director else dirBlock" class="badge badge-primary">M</span>
-                    <ng-template #dirBlock>
-                        <span class="badge badge-danger">D</span>
-                    </ng-template>
-
-                </h6>
-                <a href="mailto:{{SelectedMembre.email}}" class="">{{SelectedMembre.email}}</a>
-
-                <form (ngSubmit)="setMembreAsDirector(SelectedMembre.id!)" *ngIf="!SelectedMembre.director" class="p-2">
-                    <button type="submit">Set As Director</button>
-                </form>
-
-
-                <div class="row mt-4">
-                    <div class="col-xl-3 mb-30">
-                        <div class="card-box height-100-p widget-style1">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="widget-data">
-                                    <div class="h6 mb-0">{{SelectedMembre.laboratoire.nomLabo}}</div>
-                                    <div class="weight-600 font-14">Laboratoire</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 mb-30">
-                        <div class="card-box height-100-p widget-style1">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="widget-data">
-                                    <div class="h6 mb-0">{{SelectedMembre.laboratoire.etablissement!.nom}}</div>
-                                    <div class="weight-600 font-14">Etablissement</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 mb-30">
-                        <div class="card-box height-100-p widget-style1">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="widget-data">
-                                    <div class="h6 mb-0">{{totalExpression}}</div>
-                                    <div class="weight-600 font-14">Besoins</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 mb-30">
-                        <div class="card-box height-100-p widget-style1">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="widget-data">
-                                    <div class="h6 mb-0">$6060</div>
-                                    <div class="weight-600 font-14">Dotation</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <span *ngIf="!SelectedMembre.director else dirBlock" class="badge badge-primary">M</span>
+                        <ng-template #dirBlock>
+                            <span class="badge badge-danger">D</span>
+                        </ng-template>
+    
+                    </strong><br>
+                    <a href="mailto:{{SelectedMembre.email}}" class="">{{SelectedMembre.id}}</a><br>
+    
+                    <a *ngIf="!SelectedMembre.director && SelectedMembre.id" (click)="setMembreAsDirector(SelectedMembre.id)">Mettre en tant que directeur</a>
                 </div>
 
+                <h5>Labortoire</h5>
+                <div class="mb-2" *ngIf="SelectedMembre.laboratoire">
+                    <strong>{{SelectedMembre.laboratoire.nomLabo}}</strong>
+                    <span *ngIf="SelectedMembre.laboratoire.etablissement">{{SelectedMembre.laboratoire.etablissement.nom}}</span>
+                </div>
 
+                <h5>Expression des besoins</h5>
+                <div class="mb-2">
+                    <ul *ngFor="let e of SelectedMembre.expressionBesoins">
+                        <li>{{e.typeBesoin.type}} : {{e.dateDem}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
