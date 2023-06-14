@@ -28,6 +28,7 @@ import { DirectorsModule } from './components/directors/directors.module';
 import { DashboardmarcheComponent } from './components/dashboardrespomarche/dashboardmarche/dashboardmarche.component';
 import { DashboardrespomarcheModule } from './components/dashboardrespomarche/dashboardrespomarche.module';
 import { DotationsModule } from './components/admins/dotations/dotations.module';
+import { DashboardrespofinanceModule } from './components/dashboardrespofinance/dashboardrespofinance.module';
 
 
 
@@ -55,7 +56,8 @@ import { DotationsModule } from './components/admins/dotations/dotations.module'
     DirectorsModule,
     FormsModule,
     DashboardrespomarcheModule,
-    DotationsModule
+    DotationsModule,
+    DashboardrespofinanceModule
   ],
   providers: [
     MembreService,

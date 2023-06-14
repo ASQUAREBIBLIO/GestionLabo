@@ -1,5 +1,5 @@
-import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
+import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 import { IExpressionBesoin } from 'src/app/models/IExpressionBesoin';
 import { IMembre } from 'src/app/models/IMembre';
@@ -8,11 +8,12 @@ import { ExpressionBesoinsService } from 'src/app/services/expressionBesoins/exp
 import { MembreService } from 'src/app/services/membre/membre.service';
 
 @Component({
-  selector: 'app-dashboardmarche',
-  templateUrl: './dashboardmarche.component.html',
+  selector: 'app-dashboardfinance',
+  templateUrl: './dashboardfinance.component.html',
   styleUrls: ['../../../vendors/styles/style.css', '../../../srctemplate/plugins/datatables/css/dataTables.bootstrap4.min.css','../../../vendors/styles/core.css','../../../vendors/styles/icon-font.min.css'],
 })
-export class DashboardmarcheComponent {
+
+export class DashboardfinanceComponent {
 
   expressionbesoins: IExpressionBesoin[] = [];
   authMembre!: IMembre;
@@ -66,7 +67,7 @@ export class DashboardmarcheComponent {
   }
 
   loadExpressions() {
-    this.expressionBesoinsService.getValidExpressionBesoinsByType().subscribe(
+    this.expressionBesoinsService.getValidExpressionBesoinsByTypeFinance().subscribe(
       expressionbesoins => this.expressionbesoins = expressionbesoins,
       error => console.log(error)
     );

@@ -41,6 +41,12 @@ export class ExpressionBesoinsService {
     const type = 'marche';
     return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/${type}`);
   }
+
+  getValidExpressionBesoinsByTypeFinance(): Observable<IExpressionBesoin[]> {
+    const type = 'finance';
+    return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/${type}`);
+  }
+
   getValidExpression(): Observable<IExpressionBesoin[]> {
     return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/v`);
   }
