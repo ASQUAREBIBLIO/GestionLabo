@@ -50,4 +50,8 @@ export class ExpressionBesoinsService {
   getValidExpression(): Observable<IExpressionBesoin[]> {
     return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/v`);
   }
+
+  getInvalidExpression(): Observable<IExpressionBesoin[]> {
+    return this.http.get<IExpressionBesoin[]>(`${this.expressionUrl}/inv`);
+  }
 }
